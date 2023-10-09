@@ -1,0 +1,15 @@
+import React from "react";
+
+const RoomHeader = () => {
+  return (
+    <div className="flex flex-row items-center justify-around bg-stone-100 m-3 text-2xl  font-extrabold text-red-600">
+      <p>Townhall 1</p>
+      <p>Townhall 2 </p>
+      <p>Blauer Affe</p>
+      <p>N8schicht</p>
+      <p>Auzbi-Raum</p>
+    </div>
+  );
+};
+
+export default RoomHeader;
