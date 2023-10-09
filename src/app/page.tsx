@@ -44,11 +44,12 @@ const MainDisplayPage = () => {
       .catch((error) => {});
   }, []);
 
-  console.log("PAST EVERYTHING data state is this:::: ", meetingData);
-
   if (dataState === false) return "loading";
 
+  console.log("here is the raw list of data", meetingData);
+
   let townhall1talks: talk[] = [];
+  let townall1othertalks: talk[] = [];
   let townhall2talks: talk[] = [];
   let blauerAffe: talk[] = [];
   let n8schicht: talk[] = [];

@@ -60,20 +60,19 @@ const DataEntryPage = () => {
       },
     };
     console.log("need to save to db");
+    const payload = {
+      Title: title,
+      Speaker: speaker,
+      Language: langauge,
+      MeetingLink: meetingLink,
+      StartTime: startTime,
+      EndTime: endTime,
+      Description: description,
+      TargetAudience: targetAudience,
+    };
+
     axios
-      .post("http://localhost:8000/techfridayAPI/saveOneTalk/", {
-        data: {
-          Title: title,
-          Speaker: speaker,
-          Language: langauge,
-          MeetingLink: meetingLink,
-          StartTime: startTime,
-          EndTime: endTime,
-          Description: description,
-          TargetAudience: targetAudience,
-        },
-        config,
-      })
+      .post("http://localhost:8000/techfridayAPI/saveOneTalk/", payload)
       .then(function (response) {
         console.log("here is what we got", response);
 
