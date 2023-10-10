@@ -49,7 +49,6 @@ const MainDisplayPage = () => {
   console.log("here is the raw list of data", meetingData);
 
   let townhall1talks: talk[] = [];
-  let townall1othertalks: talk[] = [];
   let townhall2talks: talk[] = [];
   let blauerAffe: talk[] = [];
   let n8schicht: talk[] = [];
@@ -61,7 +60,6 @@ const MainDisplayPage = () => {
     blauerAffe = meetingData.filter((talk) => talk.room === "blauerAffe");
     n8schicht = meetingData.filter((talk) => talk.room === "n8schicht");
     auzbiroom = meetingData.filter((talk) => talk.room === "auzbiroom");
-    console.log("azubi talks is ", auzbiroom);
   };
 
   setUpMeetingData(meetingData);
@@ -69,13 +67,28 @@ const MainDisplayPage = () => {
   if (dataState === true) {
     return (
       <main className="flex flex-col items-center min-h-screen w-full p-5">
-        <Image
-          src="/tarent.svg"
-          alt="tarent"
-          width={TARENT_SYMBOL_SIZE}
-          height={TARENT_SYMBOL_SIZE}
-          priority
-        />
+        <div className="flex flex-row  items-center justify-between w-full p-5">
+          <Image
+            src="/tarent.svg"
+            alt="tarent"
+            width={TARENT_SYMBOL_SIZE}
+            height={TARENT_SYMBOL_SIZE}
+            priority
+          />
+
+          <Link
+            href="/attendeeRegistrationPage"
+            style={{
+              width: "150px",
+              border: "1px solid",
+              backgroundColor: "grey",
+              alignContent: "center",
+            }}
+          >
+            Link to Attendee Registration
+          </Link>
+        </div>
+
         <div className=" items-center w-full justify-between font-mono text-sm ">
           <Header />
           <RoomHeader />
