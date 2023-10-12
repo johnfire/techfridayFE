@@ -31,6 +31,7 @@ const DataEntryPage = () => {
   const [editMeeting, setEditMeetings] = useState<boolean>(false);
   const [editSpeaker, setEditSpeaker] = useState<boolean>(false);
 
+  const [speakerId, setSpeakerId] = useState<number>();
   const [speakerName, setSpeakerName] = useState<string>("");
   const [speakerBio, setSpeakerBio] = useState<string>("");
   const [speakerEmail, setSpeakerEmail] = useState<string>("");
@@ -285,13 +286,14 @@ const DataEntryPage = () => {
 
     console.log("need to save to db");
     const payload = {
-      Speaker: speakerName,
-      Bio: speakerBio,
-      email: speakerEmail,
+      id: speakerId,
+      speakerName: speakerName,
+      speakerBio: speakerBio,
+      speakerEmail: speakerEmail,
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/editOneTalk/", payload)
+      .post("http://localhost:8000/techfridayAPI/editOneSpeaker/", payload)
       .then(function (response) {
         console.log("here is what we got", response);
 
@@ -306,6 +308,7 @@ const DataEntryPage = () => {
         setSpeakerName("");
         setSpeakerBio("");
         setSpeakerEmail("");
+        window.location.reload();
       })
       .catch(function (error) {
         console.log("here is an error", error);
@@ -319,11 +322,12 @@ const DataEntryPage = () => {
     // fire warning button here !!!!!
 
     const payload = {
+      id: speakerId,
       name: speakerName,
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/editOneSpeaker/")
+      .post("http://localhost:8000/techfridayAPI/deleteOneSpeaker/", payload)
       .then(function (response) {
         console.log("here is what we got", response);
 
@@ -335,6 +339,7 @@ const DataEntryPage = () => {
           console.log("something failed");
           //push("/");
         }
+        setSpeakerId(0);
         setSpeakerName("");
         setSpeakerBio("");
         setSpeakerEmail("");
@@ -370,6 +375,7 @@ const DataEntryPage = () => {
       (speaker: speaker) => speaker.speaker === event.currentTarget.id
     );
     if (thisSpeaker?.length === 1) {
+      setSpeakerId(thisSpeaker[0].id);
       setSpeakerName(thisSpeaker[0].speaker);
       setSpeakerEmail(thisSpeaker[0].email);
       setSpeakerBio(thisSpeaker[0].bio);
@@ -421,7 +427,6 @@ const DataEntryPage = () => {
     <div>&nbsp;&nbsp;{talk.title}</div>
   ));
 
-  console.log("here is the speaker data we have gotten ", speakerData);
   return (
     <main className="flex flex-col min-h-screen w-full justify-between gap-5">
       <div className="flex flex-row items-center justify-around w-full">
@@ -594,6 +599,8 @@ const DataEntryPage = () => {
             // onSubmit={handleSubmitSpeaker}
             className="flex flex-col"
           >
+            <label>ID number :&nbsp;&nbsp; {speakerId}</label>
+            <br />
             <label>
               Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input
