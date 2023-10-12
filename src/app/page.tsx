@@ -1,16 +1,28 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import RoomHeader from "./components/roomHeader";
-import Header from "./components/header";
-import RoomColumn from "./components/roomColumn";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
-import { talk } from "../interfaces/interfaces";
+
+import RoomHeader from "./components/roomHeader";
+import Header from "./components/header";
+import RoomColumn from "./components/roomColumn";
+import { talk } from "@/interfaces/interfaces";
+import { rooms } from "@/constants";
 import { resolve } from "path";
 import { redirect } from "next/dist/server/api-utils";
 
 const TARENT_SYMBOL_SIZE: number = 200;
+
+function compareObjects(a: talk, b: talk) {
+  if (a.startTime < b.startTime) {
+    return -1;
+  }
+  if (a.startTime > b.startTime) {
+    return 1;
+  }
+  return 0;
+}
 
 const MainDisplayPage = () => {
   const [dataState, setDataState] = useState<boolean>(false);
@@ -31,7 +43,7 @@ const MainDisplayPage = () => {
   console.log("beforeaxios");
 
   useEffect(() => {
-    const response = axios
+    axios
       .get("http://localhost:8000/techfridayAPI/getAllTalks")
       .then((response) => {
         let meetingData: talk[] = [];
@@ -55,11 +67,16 @@ const MainDisplayPage = () => {
   let auzbiroom: talk[] = [];
 
   const setUpMeetingData = (meetingData: talk[]) => {
-    townhall1talks = meetingData.filter((talk) => talk.room === "townhall1");
-    townhall2talks = meetingData.filter((talk) => talk.room === "townhall2");
-    blauerAffe = meetingData.filter((talk) => talk.room === "blauerAffe");
-    n8schicht = meetingData.filter((talk) => talk.room === "n8schicht");
-    auzbiroom = meetingData.filter((talk) => talk.room === "auzbiroom");
+    townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
+    townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
+    blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
+    n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
+    auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
+    townhall1talks.sort(compareObjects);
+    townhall2talks.sort(compareObjects);
+    blauerAffe.sort(compareObjects);
+    n8schicht.sort(compareObjects);
+    auzbiroom.sort(compareObjects);
   };
 
   setUpMeetingData(meetingData);

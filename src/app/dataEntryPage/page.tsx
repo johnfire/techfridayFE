@@ -1,42 +1,47 @@
 "use client";
 
-import React, { useEffect, MouseEvent, MouseEventHandler } from "react";
+import React, { useEffect, useState, MouseEvent, MouseEventHandler } from "react";
 import Link from "next/link";
-import { useState } from "react";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import axios from "axios";
+
 import { talk, speaker } from "@/interfaces/interfaces";
+import { rooms, languages, targetAudiences } from "@/constants";
 
 // import TimePicker from "react-time-picker";
 
 const DataEntryPage = () => {
-  const [title, setTitle] = useState("");
-  const [speaker, setSpeaker] = useState("");
-  const [langauge, setLanguage] = useState("");
-  const [meetingLink, setMeetingLink] = useState("");
-  const [startTime, setStartTime] = useState("10:00");
-  const [endTime, setEndTime] = useState("11:00");
-  const [description, setDescription] = useState("");
-  const [targetAudience, setTargetAudience] = useState("");
-  const [room, setRoom] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [speaker, setSpeaker] = useState<string>("");
+  const [langauge, setLanguage] = useState<string>("");
+  const [meetingLink, setMeetingLink] = useState<string>("");
+  const [startTime, setStartTime] = useState<string>("10:00");
+  const [endTime, setEndTime] = useState<string>("11:00");
+  const [description, setDescription] = useState<string>("");
+  const [targetAudience, setTargetAudience] = useState<string>("");
+  const [room, setRoom] = useState<string>("");
 
   const [meetingData, setMeetingData] = useState<talk[] | null>();
   const [speakerData, setSpeakerData] = useState<speaker[] | null>();
 
-  const [haveMeetingData, setHaveMeetingData] = useState(false);
-  const [haveSpeakerData, setHaveSpeakerData] = useState(false);
+  const [haveMeetingData, setHaveMeetingData] = useState<boolean>(false);
+  const [haveSpeakerData, setHaveSpeakerData] = useState<boolean>(false);
 
-  const [editMeeting, setEditMeetings] = useState(false);
-  const [editSpeaker, setEditSpeaker] = useState(false);
+  const [editMeeting, setEditMeetings] = useState<boolean>(false);
+  const [editSpeaker, setEditSpeaker] = useState<boolean>(false);
 
-  const [speakerName, setSpeakerName] = useState("");
-  const [speakerBio, setSpeakerBio] = useState("");
-  const [speakerEmail, setSpeakerEmail] = useState("");
-  const [speakerTalks, setSpeakerTalks] = useState("");
+  const [speakerName, setSpeakerName] = useState<string>("");
+  const [speakerBio, setSpeakerBio] = useState<string>("");
+  const [speakerEmail, setSpeakerEmail] = useState<string>("");
+  const [speakerTalks, setSpeakerTalks] = useState<any>("");
+
+  const [speakerChoices, setSpeakerChoices] = useState<string[]>([""]);
 
   console.log("pageRefresh is now");
 
   useEffect(() => {
-    const response = axios
+    axios
       .get("http://localhost:8000/techfridayAPI/getAllTalks")
       .then((response) => {
         let meetingData: talk[] = [];
@@ -48,7 +53,7 @@ const DataEntryPage = () => {
       })
       .catch((error) => {});
     console.log("past get meetings call");
-    const response1 = axios
+    axios
       .get("http://localhost:8000/techfridayAPI/getAllSpeakers")
       .then((response1) => {
         let speakerData: speaker[] = [];
@@ -58,6 +63,8 @@ const DataEntryPage = () => {
         }
         setSpeakerData(speakerData);
         setHaveSpeakerData(true);
+        const speakerNames = speakerData.map((speaker) => speaker.speaker);
+        setSpeakerChoices(speakerNames);
       })
       .catch((error) => {});
   }, []);
@@ -66,12 +73,12 @@ const DataEntryPage = () => {
     setTitle(event.target.value);
   };
 
-  const handleChangeSpeaker = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setSpeaker(event.target.value);
+  const handleChangeSpeaker = (event: any) => {
+    setSpeaker(event.value);
   };
 
-  const handleChangeLangauge = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setLanguage(event.target.value);
+  const handleChangeLangauge = (event: any) => {
+    setLanguage(event.value);
   };
 
   const handleMeetingLink = (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -90,20 +97,17 @@ const DataEntryPage = () => {
     setDescription(event.target.value);
   };
 
-  const handleChangeTargetAudience = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setTargetAudience(event.target.value);
+  const handleChangeTargetAudience = (event: any) => {
+    setTargetAudience(event.value);
   };
 
-  const handleChangeRoom = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setRoom(event.target.value);
+  const handleChangeRoom = (event: any) => {
+    console.log(event.value);
+    setRoom(event.value);
   };
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-
-    console.log("need to save to db");
     const payload = {
       Title: title,
       Speaker: speaker,
@@ -113,13 +117,14 @@ const DataEntryPage = () => {
       EndTime: endTime,
       Description: description,
       TargetAudience: targetAudience,
+      Room: room,
     };
+
+    console.log("here is the outgoing payload", payload);
 
     axios
       .post("http://localhost:8000/techfridayAPI/saveOneTalk/", payload)
       .then(function (response) {
-        console.log("here is what we got", response);
-
         if (response.status === 201) {
           console.log("pinged API successfully");
           //push("/");
@@ -136,6 +141,8 @@ const DataEntryPage = () => {
         setEndTime("");
         setDescription("");
         setTargetAudience("");
+        setRoom("");
+        window.location.reload();
       })
       .catch(function (error) {
         console.log("here is an error", error);
@@ -239,7 +246,7 @@ const DataEntryPage = () => {
     setSpeakerEmail(event?.target.value);
   };
 
-  const handleSubmitSpeaker = (event: any) => {
+  const handleSubmitSpeaker = (event: React.MouseEvent) => {
     event.preventDefault();
     console.log("need to save to db");
     const payload = {
@@ -251,28 +258,29 @@ const DataEntryPage = () => {
     axios
       .post("http://localhost:8000/techfridayAPI/saveOneSpeaker/", payload)
       .then(function (response) {
-        console.log("here is what we got", response);
+        console.log(" SPEAKER here is what we got", response);
 
         if (response.status === 201) {
-          console.log("pinged API successfully");
+          console.log("SPEAKERpinged API successfully");
           //push("/");
         }
         if (response.status !== 201) {
-          console.log("something failed");
+          console.log("SPEAKERsomething failed");
           //push("/");
         }
-        setSpeakerName("");
-        setSpeakerEmail("");
-        setSpeakerBio("");
-        setSpeakerTalks("");
       })
       .catch(function (error) {
-        console.log("here is an error", error);
+        console.log("SPEAKERhere is an error", error);
         //setCantUseThatEmail(true);
       });
+    setSpeakerName("");
+    setSpeakerEmail("");
+    setSpeakerBio("");
+    setSpeakerTalks("");
+    window.location.reload();
   };
 
-  const handleSubmitEditSpeaker = (event: any) => {
+  const handleSubmitEditSpeaker = (event: React.MouseEvent) => {
     event.preventDefault();
 
     console.log("need to save to db");
@@ -305,7 +313,7 @@ const DataEntryPage = () => {
       });
   };
 
-  const handleSubmitDeleteSpeaker = (event: any) => {
+  const handleSubmitDeleteSpeaker = (event: React.MouseEvent) => {
     event.preventDefault();
 
     // fire warning button here !!!!!
@@ -365,6 +373,7 @@ const DataEntryPage = () => {
       setSpeakerName(thisSpeaker[0].speaker);
       setSpeakerEmail(thisSpeaker[0].email);
       setSpeakerBio(thisSpeaker[0].bio);
+      setSpeakerTalks(thisSpeaker[0].talks);
       setEditSpeaker(true);
     }
     console.log("speaker is", thisSpeaker);
@@ -374,7 +383,7 @@ const DataEntryPage = () => {
     return <div>loading</div>;
   }
 
-  const meetingList = meetingData?.map((meeting: any) => {
+  const meetingList = meetingData?.map((meeting: talk) => {
     return (
       <button
         type="button"
@@ -391,7 +400,7 @@ const DataEntryPage = () => {
     );
   });
 
-  const speakerList = speakerData?.map((speaker: any) => {
+  const speakerList = speakerData?.map((speaker: speaker) => {
     return (
       <button
         type="button"
@@ -408,9 +417,15 @@ const DataEntryPage = () => {
     );
   });
 
+  const speakerTalksDisplay = Array.from(speakerTalks).map((talk: any) => (
+    <div>&nbsp;&nbsp;{talk.title}</div>
+  ));
+
+  console.log("here is the speaker data we have gotten ", speakerData);
   return (
-    <main className="flex flex-col min-h-screen  w-full justify-between gap-5">
-      <div className="flex flex-col items-center">
+    <main className="flex flex-col min-h-screen w-full justify-between gap-5">
+      <div className="flex flex-row items-center justify-around w-full">
+        <br />
         <br />
         <Link
           href="/"
@@ -420,9 +435,17 @@ const DataEntryPage = () => {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go
           back here!
         </Link>
+        <Link
+          href="/attendeeDisplayPage"
+          className="items-center"
+          style={{ width: "250px", border: "1px solid", backgroundColor: "grey" }}
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          attendees
+        </Link>
       </div>
       <div className="flex flex-row justify-between gap-5">
-        <div className="flex flex-col items-center w-full justify-between font-mono text-sm bg-slate-100">
+        <div className="flex flex-col items-center w-full justify-between font-mono text-sm bg-amber-100">
           <br />
 
           <p>Enter talk data here:</p>
@@ -438,28 +461,6 @@ const DataEntryPage = () => {
                 name="title"
                 value={title}
                 onChange={handleChangeTitle}
-                style={{ width: "370px", border: "1px solid" }}
-              />
-            </label>
-            <br />
-            <label>
-              Speaker:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
-                name="Speaker"
-                value={speaker}
-                onChange={handleChangeSpeaker}
-                style={{ width: "370px", border: "1px solid" }}
-              />
-            </label>
-            <br />
-            <label>
-              Language:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
-                name="Language"
-                value={langauge}
-                onChange={handleChangeLangauge}
                 style={{ width: "370px", border: "1px solid" }}
               />
             </label>
@@ -510,24 +511,42 @@ const DataEntryPage = () => {
             </label>
             <br />
             <label>
+              Speaker:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Dropdown
+                options={speakerChoices}
+                onChange={handleChangeSpeaker}
+                value={speaker}
+                placeholder="Select an option"
+              />
+            </label>
+            <br />
+            <label>
+              Language:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Dropdown
+                options={languages}
+                onChange={handleChangeLangauge}
+                value={langauge}
+                placeholder="Select an option"
+              />
+            </label>
+            <br />
+            <label>
               Target Audience:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
-                name="targetAudience"
-                value={targetAudience}
+              <Dropdown
+                options={targetAudiences}
                 onChange={handleChangeTargetAudience}
-                style={{ width: "370px", border: "1px solid" }}
+                value={targetAudience}
+                placeholder="Select an option"
               />
             </label>
             <br />
             <label>
               Room:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
-                name="room"
-                value={room}
+              <Dropdown
+                options={rooms}
                 onChange={handleChangeRoom}
-                style={{ width: "370px", border: "1px solid" }}
+                value={room}
+                placeholder="Select an option"
               />
             </label>
             <br />
@@ -567,12 +586,12 @@ const DataEntryPage = () => {
           {meetingList}
           <br />
         </div>
-        <div className="flex flex-col items-center w-full justify-between font-mono text-sm bg-slate-200">
+        <div className="flex flex-col w-full justify-start font-mono text-sm bg-amber-100">
           <br />
           <p>Enter speaker data here</p>
           <br />
           <form
-            onSubmit={handleSubmitSpeaker}
+            // onSubmit={handleSubmitSpeaker}
             className="flex flex-col"
           >
             <label>
@@ -597,16 +616,8 @@ const DataEntryPage = () => {
               />
             </label>
             <br />
-            <label>
-              Talks:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
-                name="talks"
-                value={speakerTalks}
-                onChange={handleChangeTalks}
-                style={{ width: "370px", border: "1px solid" }}
-              />
-            </label>
+            <p> Talks: </p>
+            {speakerTalksDisplay}
             <br />
             <label>
               Bio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -619,7 +630,7 @@ const DataEntryPage = () => {
               />
             </label>
             <br />
-            {!editMeeting && (
+            {!editSpeaker && (
               <button
                 type="submit"
                 style={{ border: "1px solid", backgroundColor: "grey" }}
@@ -629,7 +640,7 @@ const DataEntryPage = () => {
               </button>
             )}
             <br />
-            {editMeeting && (
+            {editSpeaker && (
               <div className="flex flex row justify-around w-full">
                 <button
                   type="submit"
@@ -649,15 +660,6 @@ const DataEntryPage = () => {
             )}
             <br />
             {speakerList}
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
             <br />
           </form>
         </div>

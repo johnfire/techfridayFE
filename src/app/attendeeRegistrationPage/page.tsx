@@ -4,15 +4,32 @@ import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+import { useRouter } from "next/navigation";
+
+import { typeOfAttendee } from "@/constants";
 
 const AttendeeRegistrationPage = () => {
-  const [attendeeName, setAttendeeName] = useState("");
-  const [attendeeBio, setAttendeeBio] = useState("");
-  const [attendeeEmail, setAttendeeEmail] = useState("");
-  const [attendeeCompany, setAttendeeCompany] = useState("");
+  const { push } = useRouter();
+  const [attendeeFirstName, setAttendeeFirstName] = useState<string>("");
+  const [attendeeLastName, setAttendeeLastName] = useState<string>("");
+  const [attendeeBio, setAttendeeBio] = useState<string>("");
+  const [attendeeEmail, setAttendeeEmail] = useState<string>("");
+  const [attendeeTelephone, setAttendeeTelephone] = useState<string>("");
+  const [attendeeCompany, setAttendeeCompany] = useState<string>("");
+  const [attendeeType, setAttendeeType] = useState<string>("");
 
-  const handleChangeAttendeeName = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setAttendeeName(event.target.value);
+  const handleChangeAttendeeFirstName = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setAttendeeFirstName(event.target.value);
+  };
+
+  const handleChangeAttendeeLastName = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setAttendeeLastName(event.target.value);
   };
 
   const handleChangeBio = (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -27,14 +44,23 @@ const AttendeeRegistrationPage = () => {
     setAttendeeEmail(event?.target.value);
   };
 
-  const handleSubmitAttendee = (event: any) => {
+  const handleChangeTelephone = (event: { target: { value: React.SetStateAction<string> } }) => {
+    setAttendeeTelephone(event?.target.value);
+  };
+  const handleChangeAttendeeType = (event: any) => {
+    setAttendeeType(event.value);
+  };
+
+  const handleSubmitAttendee = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    console.log("need to save to db");
     const payload = {
-      attendeeName: attendeeName,
+      attendeeFirstName: attendeeFirstName,
+      attendeeLastName: attendeeLastName,
       attendeeBio: attendeeBio,
-      attendeeTalks: attendeeCompany,
       attendeeEmail: attendeeEmail,
+      attendeeTelephone: attendeeTelephone,
+      attendeeType: attendeeType,
+      attendeeCompany: attendeeCompany,
     };
 
     axios
@@ -44,7 +70,7 @@ const AttendeeRegistrationPage = () => {
 
         if (response.status === 201) {
           console.log("pinged API successfully");
-          //push("/");
+          push("/");
         }
         if (response.status !== 201) {
           console.log("something failed");
@@ -60,7 +86,7 @@ const AttendeeRegistrationPage = () => {
   return (
     <main className="flex flex-col min-h-screen  w-full justify-between gap-5">
       <div className="flex flex-row justify-between gap-5">
-        <div className="flex flex-col items-center w-full justify-between font-mono text-sm bg-slate-200">
+        <div className="flex flex-col items-center w-full justify-between justify-start font-mono text-sm bg-slate-200">
           <br />
           <p>Enter Attendee data here</p>
           <br />
@@ -69,18 +95,29 @@ const AttendeeRegistrationPage = () => {
             className="flex flex-col"
           >
             <label>
-              Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              First Name:&nbsp;&nbsp;
               <input
                 type="text"
                 name="Speaker"
-                value={attendeeName}
-                onChange={handleChangeAttendeeName}
+                value={attendeeFirstName}
+                onChange={handleChangeAttendeeFirstName}
                 style={{ width: "370px", border: "1px solid" }}
               />
             </label>
             <br />
             <label>
-              email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Last Name:&nbsp;&nbsp;&nbsp;
+              <input
+                type="text"
+                name="Speaker"
+                value={attendeeLastName}
+                onChange={handleChangeAttendeeLastName}
+                style={{ width: "370px", border: "1px solid" }}
+              />
+            </label>
+            <br />
+            <label>
+              email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="text"
                 name="Speaker"
@@ -91,7 +128,18 @@ const AttendeeRegistrationPage = () => {
             </label>
             <br />
             <label>
-              Company:&nbsp;&nbsp;&nbsp;&nbsp;
+              Telephone:&nbsp;&nbsp;&nbsp;
+              <input
+                type="text"
+                name="Speaker"
+                value={attendeeTelephone}
+                onChange={handleChangeTelephone}
+                style={{ width: "370px", border: "1px solid" }}
+              />
+            </label>
+            <br />
+            <label>
+              Company:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="text"
                 name="Language"
@@ -112,35 +160,34 @@ const AttendeeRegistrationPage = () => {
               />
             </label>
             <br />
+            <label>
+              type of
+              attendee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Dropdown
+                options={typeOfAttendee}
+                onChange={handleChangeAttendeeType}
+                value={attendeeType}
+                placeholder="Select an option"
+              />
+            </label>
+            <br />
             <input
               type="submit"
               value="Submit"
               style={{ border: "1px solid", backgroundColor: "grey" }}
             />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
           </form>
         </div>
       </div>
-
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-between justify-start">
         <Link
           href="/"
-          className="items-center"
+          className="items-center justify-start"
           style={{ width: "250px", border: "1px solid", backgroundColor: "grey" }}
         >
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go
-          back here!
+          {" "}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; go back
+          here!
         </Link>
         <br />
         <br />

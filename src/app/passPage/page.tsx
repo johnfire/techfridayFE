@@ -10,13 +10,13 @@ const PASS_PHRASE = "blah";
 const PassPage = () => {
   const passPhrase: string = PASS_PHRASE;
   const router = useRouter();
-  const [userEntry, setUserEntry] = useState("");
+  const [userEntry, setUserEntry] = useState<string>("");
 
   const handleChange = (event: { target: { value: React.SetStateAction<string> } }) => {
     setUserEntry(event.target.value);
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (userEntry === PASS_PHRASE) {
       router.push("/dataEntryPage/");

@@ -3,7 +3,7 @@
 // }
 
 export interface talk {
-  // id:number;
+  id?: number;
   title: string;
   speaker: string;
   langauge: string;
@@ -16,6 +16,7 @@ export interface talk {
 }
 
 export interface speaker {
+  id?: number;
   speaker: string;
   email: string;
   bio: string;
@@ -23,9 +24,13 @@ export interface speaker {
 }
 
 export interface Attendee {
-  name: string;
+  id?: number;
+  firstName: string;
+  lastName: string;
   email: string;
-  bio: string;
-  talks: number[];
+  bio?: string;
+  // talks: number[];
   company: string;
+  telephone?: string;
+  type: string;
 }
