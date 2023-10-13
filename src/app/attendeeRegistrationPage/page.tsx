@@ -8,7 +8,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useRouter } from "next/navigation";
 
-import { typeOfAttendee } from "@/constants";
+import { typeOfAttendee, BUTTON_STYLE, TEXT_BOLD } from "@/constants";
 
 const AttendeeRegistrationPage = () => {
   const { push } = useRouter();
@@ -66,10 +66,7 @@ const AttendeeRegistrationPage = () => {
     axios
       .post("http://localhost:8000/techfridayAPI/saveOneAttendee/", payload)
       .then(function (response) {
-        console.log("here is what we got", response);
-
         if (response.status === 201) {
-          console.log("pinged API successfully");
           push("/");
         }
         if (response.status !== 201) {
@@ -86,9 +83,9 @@ const AttendeeRegistrationPage = () => {
   return (
     <main className="flex flex-col min-h-screen  w-full justify-between gap-5">
       <div className="flex flex-row justify-between gap-5">
-        <div className="flex flex-col items-center w-full justify-between justify-start font-mono text-sm bg-slate-200">
+        <div className="flex flex-col items-center w-full justify-between justify-start font-mono text-sm bg-amber-100">
           <br />
-          <p>Enter Attendee data here</p>
+          <p className={TEXT_BOLD}>Enter Attendee Data Here:</p>
           <br />
           <form
             onSubmit={handleSubmitAttendee}
@@ -151,8 +148,7 @@ const AttendeeRegistrationPage = () => {
             <br />
             <label>
               Bio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
+              <textarea
                 name="description"
                 value={attendeeBio}
                 onChange={handleChangeBio}
@@ -174,7 +170,7 @@ const AttendeeRegistrationPage = () => {
             <input
               type="submit"
               value="Submit"
-              style={{ border: "1px solid", backgroundColor: "grey" }}
+              className={BUTTON_STYLE}
             />
           </form>
         </div>
@@ -182,12 +178,9 @@ const AttendeeRegistrationPage = () => {
       <div className="flex flex-col items-center justify-between justify-start">
         <Link
           href="/"
-          className="items-center justify-start"
-          style={{ width: "250px", border: "1px solid", backgroundColor: "grey" }}
+          className={BUTTON_STYLE}
         >
-          {" "}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; go back
-          here!
+          go back here!
         </Link>
         <br />
         <br />

@@ -19,7 +19,6 @@ const AttendeeDisplayPage = () => {
         for (let i = 0; i < response.data.length; i++) {
           meetingData.push(response.data[i]);
         }
-        console.log("here is the data", meetingData);
         setAttendeeList(meetingData);
         setHaveAttendeeList(true);
       })

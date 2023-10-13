@@ -1,12 +1,9 @@
-// export interface talksList {
-//   tal: talk[];
-// }
-
 export interface talk {
   id?: number;
   title: string;
-  speaker: string;
-  langauge: string;
+  speakerName: string;
+  speakerId: number;
+  language: string;
   meetingLink: string;
   startTime: string;
   endTime: string;
@@ -29,7 +26,6 @@ export interface Attendee {
   lastName: string;
   email: string;
   bio?: string;
-  // talks: number[];
   company: string;
   telephone?: string;
   type: string;

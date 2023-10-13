@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { BUTTON_STYLE, TEXT_BOLD } from "@/constants";
+
 const PASS_PHRASE = "blah";
 
 const PassPage = () => {
@@ -28,31 +30,29 @@ const PassPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-slate-100 min-h-screen w-full border-4">
-      <p>Please enter the pass phrase here</p>
+    <div className="flex flex-col justify-center items-center bg-amber-100 min-h-screen w-full border-4">
+      <p className={TEXT_BOLD}>Please enter the pass phrase here:</p>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          Pass Phrase:&nbsp;&nbsp;&nbsp;&nbsp;
-          <input
-            type="text"
-            name="passPhrase"
-            value={userEntry}
-            onChange={handleChange}
-          />
-        </label>
-        &nbsp;&nbsp;&nbsp;
+        <input
+          type="text"
+          name="passPhrase"
+          value={userEntry}
+          onChange={handleChange}
+          className=" border-2 border-black "
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="submit"
           value="Submit"
-          className="bg-slate-300 border-4 border-black"
+          className={BUTTON_STYLE}
         />
       </form>
 
       <br />
       <Link
         href="/"
-        className="bg-slate-300 border-4 border-black"
+        className={BUTTON_STYLE}
       >
         go back here!
       </Link>

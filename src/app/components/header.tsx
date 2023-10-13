@@ -1,13 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
-const STAR_SIZE: number = 15;
-const TECH_FRIDAY_GRAPHIC_SIZE: number = 300;
+import { STAR_SIZE, TECH_FRIDAY_GRAPHIC_SIZE } from "@/constants";
 
 const Header = () => {
   return (
-    <div className=" flex flex-row  justify-between bg-stone-100 m-3">
-      <div className=" flex flex-col justify-between ">
+    <div className=" flex flex-row  justify-between bg-amber-100 m-3 rounded-md border-2 border-blue-900">
+      <div className=" flex flex-col justify-between  ">
         <br />
         <div className="text-2xl font-extrabold ">
           <p>Tech Friday!</p>
@@ -53,7 +52,6 @@ const Header = () => {
       <Image
         src="/tech-friday-logo.svg"
         alt="Vercel Logo"
-        // className="dark:invert"
         width={TECH_FRIDAY_GRAPHIC_SIZE}
         height={TECH_FRIDAY_GRAPHIC_SIZE}
         priority

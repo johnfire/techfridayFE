@@ -7,14 +7,12 @@ import "react-dropdown/style.css";
 import axios from "axios";
 
 import { talk, speaker } from "@/interfaces/interfaces";
-import { rooms, languages, targetAudiences } from "@/constants";
-
-// import TimePicker from "react-time-picker";
+import { rooms, languages, targetAudiences, BUTTON_STYLE, TEXT_BOLD } from "@/constants";
 
 const DataEntryPage = () => {
   const [title, setTitle] = useState<string>("");
   const [speaker, setSpeaker] = useState<string>("");
-  const [langauge, setLanguage] = useState<string>("");
+  const [language, setLanguage] = useState<string>("");
   const [meetingLink, setMeetingLink] = useState<string>("");
   const [startTime, setStartTime] = useState<string>("10:00");
   const [endTime, setEndTime] = useState<string>("11:00");
@@ -39,8 +37,6 @@ const DataEntryPage = () => {
 
   const [speakerChoices, setSpeakerChoices] = useState<string[]>([""]);
 
-  console.log("pageRefresh is now");
-
   useEffect(() => {
     axios
       .get("http://localhost:8000/techfridayAPI/getAllTalks")
@@ -53,12 +49,10 @@ const DataEntryPage = () => {
         setHaveMeetingData(true);
       })
       .catch((error) => {});
-    console.log("past get meetings call");
     axios
       .get("http://localhost:8000/techfridayAPI/getAllSpeakers")
       .then((response1) => {
         let speakerData: speaker[] = [];
-        console.log("here is the raw data from backend", response1.data);
         for (let i = 0; i < response1.data.length; i++) {
           speakerData.push(response1.data[i]);
         }
@@ -112,7 +106,7 @@ const DataEntryPage = () => {
     const payload = {
       Title: title,
       Speaker: speaker,
-      Language: langauge,
+      Language: language,
       MeetingLink: meetingLink,
       StartTime: startTime,
       EndTime: endTime,
@@ -121,18 +115,14 @@ const DataEntryPage = () => {
       Room: room,
     };
 
-    console.log("here is the outgoing payload", payload);
-
     axios
       .post("http://localhost:8000/techfridayAPI/saveOneTalk/", payload)
       .then(function (response) {
         if (response.status === 201) {
           console.log("pinged API successfully");
-          //push("/");
         }
         if (response.status !== 201) {
           console.log("something failed");
-          //push("/");
         }
         setTitle("");
         setSpeaker("");
@@ -154,11 +144,10 @@ const DataEntryPage = () => {
   const handleSubmitEditMeeting = (event: any) => {
     event.preventDefault();
 
-    console.log("need to save to db");
     const payload = {
       Title: title,
       Speaker: speaker,
-      Language: langauge,
+      Language: language,
       MeetingLink: meetingLink,
       StartTime: startTime,
       EndTime: endTime,
@@ -169,15 +158,11 @@ const DataEntryPage = () => {
     axios
       .post("http://localhost:8000/techfridayAPI/editOneTalk/", payload)
       .then(function (response) {
-        console.log("here is what we got", response);
-
         if (response.status === 201) {
           console.log("pinged API successfully");
-          //push("/");
         }
         if (response.status !== 201) {
           console.log("something failed");
-          //push("/");
         }
         setTitle("");
         setSpeaker("");
@@ -354,11 +339,10 @@ const DataEntryPage = () => {
     const thisMeeting = meetingData?.filter(
       (meeting: talk) => meeting.title === event.currentTarget.id
     );
-    console.log("meeting is here", thisMeeting);
     if (thisMeeting?.length === 1) {
       setTitle(thisMeeting[0].title);
-      setSpeaker(thisMeeting[0].speaker);
-      setLanguage(thisMeeting[0].langauge);
+      setSpeaker(thisMeeting[0].speakerName);
+      setLanguage(thisMeeting[0].language);
       setMeetingLink(thisMeeting[0].meetingLink);
       setStartTime(thisMeeting[0].startTime);
       setEndTime(thisMeeting[0].endTime);
@@ -367,7 +351,6 @@ const DataEntryPage = () => {
       setTargetAudience(thisMeeting[0].targetAudience);
       setEditMeetings(true);
     }
-    console.log("meeting is", thisMeeting);
   };
 
   const handleSpeakerButtonClick = (event: React.MouseEvent) => {
@@ -393,7 +376,7 @@ const DataEntryPage = () => {
     return (
       <button
         type="button"
-        className="border-2 w-full bg-stone-300"
+        className={BUTTON_STYLE}
         onClick={handleMeetingButtonClick}
         id={meeting.title}
         key={meeting.title}
@@ -410,7 +393,7 @@ const DataEntryPage = () => {
     return (
       <button
         type="button"
-        className="border-2 w-full bg-stone-300"
+        className={BUTTON_STYLE}
         onClick={handleSpeakerButtonClick}
         id={speaker.speaker}
         key={speaker.speaker}
@@ -428,32 +411,30 @@ const DataEntryPage = () => {
   ));
 
   return (
-    <main className="flex flex-col min-h-screen w-full justify-between gap-5">
-      <div className="flex flex-row items-center justify-around w-full">
-        <br />
+    <main className="flex flex-col min-h-screen w-full justify-between gap-5 ">
+      <div
+        id="header"
+        className="flex flex-row items-center justify-center w-full "
+      >
         <br />
         <Link
           href="/"
-          className="items-center"
-          style={{ width: "250px", border: "1px solid", backgroundColor: "grey" }}
+          className={BUTTON_STYLE}
         >
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go
-          back here!
+          go back here!
         </Link>
         <Link
           href="/attendeeDisplayPage"
-          className="items-center"
-          style={{ width: "250px", border: "1px solid", backgroundColor: "grey" }}
+          className={BUTTON_STYLE}
         >
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          attendees
+          Attendee List
         </Link>
       </div>
       <div className="flex flex-row justify-between gap-5">
         <div className="flex flex-col items-center w-full justify-between font-mono text-sm bg-amber-100">
           <br />
 
-          <p>Enter talk data here:</p>
+          <p className={TEXT_BOLD}>Enter Talk Data Here:</p>
           <br />
           <form
             onSubmit={handleSubmit}
@@ -506,12 +487,12 @@ const DataEntryPage = () => {
             <br />
             <label>
               Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
+              <textarea
                 name="description"
                 value={description}
                 onChange={handleChangeDescrption}
-                style={{ width: "370px", height: "400px", border: "1px solid" }}
+                className="w-96 h-96 border-2  break-normal"
+                // style={{ width: "370px", height: "400px", border: "1px solid" }}
               />
             </label>
             <br />
@@ -530,7 +511,7 @@ const DataEntryPage = () => {
               <Dropdown
                 options={languages}
                 onChange={handleChangeLangauge}
-                value={langauge}
+                value={language}
                 placeholder="Select an option"
               />
             </label>
@@ -559,9 +540,9 @@ const DataEntryPage = () => {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                style={{ border: "1px solid", backgroundColor: "grey" }}
+                className={BUTTON_STYLE}
               >
-                create new meeting
+                Create New Meeting
               </button>
             )}
 
@@ -570,16 +551,16 @@ const DataEntryPage = () => {
                 <button
                   type="submit"
                   onClick={handleSubmitEditMeeting}
-                  style={{ border: "1px solid", backgroundColor: "grey" }}
+                  className={BUTTON_STYLE}
                 >
-                  edit meeting
+                  Edit Meeting
                 </button>
                 <button
                   type="submit"
                   onClick={handleSubmitdeleteMeeting}
-                  style={{ border: "1px solid", backgroundColor: "grey" }}
+                  className={BUTTON_STYLE}
                 >
-                  delete meeting
+                  Delete Meeting
                 </button>
               </div>
             )}
@@ -591,9 +572,9 @@ const DataEntryPage = () => {
           {meetingList}
           <br />
         </div>
-        <div className="flex flex-col w-full justify-start font-mono text-sm bg-amber-100">
+        <div className="flex flex-col w-full items-center font-mono text-sm bg-amber-100">
           <br />
-          <p>Enter speaker data here</p>
+          <p className={TEXT_BOLD}>Enter Speaker Data Here:</p>
           <br />
           <form
             // onSubmit={handleSubmitSpeaker}
@@ -628,8 +609,7 @@ const DataEntryPage = () => {
             <br />
             <label>
               Bio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="text"
+              <textarea
                 name="Bio"
                 value={speakerBio}
                 onChange={handleChangeBio}
@@ -640,10 +620,10 @@ const DataEntryPage = () => {
             {!editSpeaker && (
               <button
                 type="submit"
-                style={{ border: "1px solid", backgroundColor: "grey" }}
+                className={BUTTON_STYLE}
                 onClick={handleSubmitSpeaker}
               >
-                add new speaker
+                Add New Speaker
               </button>
             )}
             <br />
@@ -652,16 +632,16 @@ const DataEntryPage = () => {
                 <button
                   type="submit"
                   onClick={handleSubmitEditSpeaker}
-                  style={{ border: "1px solid", backgroundColor: "grey" }}
+                  className={BUTTON_STYLE}
                 >
-                  edit Speaker
+                  Edit Speaker
                 </button>
                 <button
                   type="submit"
                   onClick={handleSubmitDeleteSpeaker}
-                  style={{ border: "1px solid", backgroundColor: "grey" }}
+                  className={BUTTON_STYLE}
                 >
-                  delete delete
+                  Delete Speaker
                 </button>
               </div>
             )}

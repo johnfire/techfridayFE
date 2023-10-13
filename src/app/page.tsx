@@ -8,9 +8,7 @@ import RoomHeader from "./components/roomHeader";
 import Header from "./components/header";
 import RoomColumn from "./components/roomColumn";
 import { talk } from "@/interfaces/interfaces";
-import { rooms } from "@/constants";
-import { resolve } from "path";
-import { redirect } from "next/dist/server/api-utils";
+import { rooms, BUTTON_STYLE, TEXT_BOLD } from "@/constants";
 
 const TARENT_SYMBOL_SIZE: number = 200;
 
@@ -29,8 +27,9 @@ const MainDisplayPage = () => {
   const [meetingData, setMeetingData] = useState<talk[]>([
     {
       title: "dummy",
-      speaker: "dummy",
-      langauge: "dummy",
+      speakerName: "dummy",
+      speakerId: 1,
+      language: "dummy",
       meetingLink: "dummy",
       startTime: "dummy",
       endTime: "dummy",
@@ -39,8 +38,6 @@ const MainDisplayPage = () => {
       targetAudience: "dummy",
     },
   ]);
-
-  console.log("beforeaxios");
 
   useEffect(() => {
     axios
@@ -57,8 +54,6 @@ const MainDisplayPage = () => {
   }, []);
 
   if (dataState === false) return "loading";
-
-  console.log("here is the raw list of data", meetingData);
 
   let townhall1talks: talk[] = [];
   let townhall2talks: talk[] = [];
@@ -84,9 +79,9 @@ const MainDisplayPage = () => {
   if (dataState === true) {
     return (
       <main className="flex flex-col items-center min-h-screen w-full p-5">
-        <div className="flex flex-row  items-center justify-between w-full p-5">
+        <div className="flex flex-row items-center justify-between w-full p-5">
           <Image
-            src="/tarent.svg"
+            src="/Qvest-digital-mockup.svg"
             alt="tarent"
             width={TARENT_SYMBOL_SIZE}
             height={TARENT_SYMBOL_SIZE}
@@ -95,12 +90,7 @@ const MainDisplayPage = () => {
 
           <Link
             href="/attendeeRegistrationPage"
-            style={{
-              width: "150px",
-              border: "1px solid",
-              backgroundColor: "grey",
-              alignContent: "center",
-            }}
+            className={BUTTON_STYLE}
           >
             Link to Attendee Registration
           </Link>
@@ -110,7 +100,7 @@ const MainDisplayPage = () => {
           <Header />
           <RoomHeader />
         </div>
-        <div className="flex flex-row w-full items-center justify-between font-mono text-sm gap-3">
+        <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2">
           <RoomColumn
             list={townhall1talks}
             dataState={dataState}
@@ -137,17 +127,12 @@ const MainDisplayPage = () => {
         <br />
         <br />
 
-        <Link
+        {/* <Link
           href="/passPage"
-          style={{
-            width: "150px",
-            border: "1px solid",
-            backgroundColor: "grey",
-            alignContent: "center",
-          }}
+          className={BUTTON_STYLE}
         >
           Link to data entry
-        </Link>
+        </Link> */}
       </main>
     );
   }
