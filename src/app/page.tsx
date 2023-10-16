@@ -8,7 +8,7 @@ import RoomHeader from "./components/roomHeader";
 import Header from "./components/header";
 import RoomColumn from "./components/roomColumn";
 import { talk } from "@/interfaces/interfaces";
-import { rooms, BUTTON_STYLE, TEXT_BOLD } from "@/constants";
+import { rooms, BUTTON_STYLE, BASIS_URL } from "@/constants";
 
 const TARENT_SYMBOL_SIZE: number = 200;
 
@@ -41,7 +41,7 @@ const MainDisplayPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/techfridayAPI/getAllTalks")
+      .get(`${BASIS_URL}/techfridayAPI/getAllTalks`)
       .then((response) => {
         let meetingData: talk[] = [];
         for (let i = 0; i < response.data.length; i++) {

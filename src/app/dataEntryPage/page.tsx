@@ -7,7 +7,7 @@ import "react-dropdown/style.css";
 import axios from "axios";
 
 import { talk, speaker } from "@/interfaces/interfaces";
-import { rooms, languages, targetAudiences, BUTTON_STYLE, TEXT_BOLD } from "@/constants";
+import { rooms, languages, targetAudiences, BUTTON_STYLE, TEXT_BOLD, BASIS_URL } from "@/constants";
 
 const DataEntryPage = () => {
   const [title, setTitle] = useState<string>("");
@@ -39,7 +39,7 @@ const DataEntryPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/techfridayAPI/getAllTalks")
+      .get(`${BASIS_URL}/techfridayAPI/getAllTalks`)
       .then((response) => {
         let meetingData: talk[] = [];
         for (let i = 0; i < response.data.length; i++) {
@@ -50,7 +50,7 @@ const DataEntryPage = () => {
       })
       .catch((error) => {});
     axios
-      .get("http://localhost:8000/techfridayAPI/getAllSpeakers")
+      .get(`${BASIS_URL}/techfridayAPI/getAllSpeakers`)
       .then((response1) => {
         let speakerData: speaker[] = [];
         for (let i = 0; i < response1.data.length; i++) {
@@ -116,7 +116,7 @@ const DataEntryPage = () => {
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/saveOneTalk/", payload)
+      .post(`${BASIS_URL}/techfridayAPI/saveOneTalk/`, payload)
       .then(function (response) {
         if (response.status === 201) {
           console.log("pinged API successfully");
@@ -156,7 +156,7 @@ const DataEntryPage = () => {
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/editOneTalk/", payload)
+      .post(`${BASIS_URL}/techfridayAPI/editOneTalk/`, payload)
       .then(function (response) {
         if (response.status === 201) {
           console.log("pinged API successfully");
@@ -189,7 +189,7 @@ const DataEntryPage = () => {
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/deleteOneTalk/")
+      .post(`${BASIS_URL}/techfridayAPI/deleteOneTalk/`)
       .then(function (response) {
         console.log("here is what we got", response);
 
@@ -242,7 +242,7 @@ const DataEntryPage = () => {
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/saveOneSpeaker/", payload)
+      .post(`${BASIS_URL}/techfridayAPI/saveOneSpeaker/`, payload)
       .then(function (response) {
         console.log(" SPEAKER here is what we got", response);
 
@@ -278,7 +278,7 @@ const DataEntryPage = () => {
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/editOneSpeaker/", payload)
+      .post(`${BASIS_URL}/techfridayAPI/editOneSpeaker/`, payload)
       .then(function (response) {
         console.log("here is what we got", response);
 
@@ -312,7 +312,7 @@ const DataEntryPage = () => {
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/deleteOneSpeaker/", payload)
+      .post(`${BASIS_URL}/techfridayAPI/deleteOneSpeaker/`, payload)
       .then(function (response) {
         console.log("here is what we got", response);
 

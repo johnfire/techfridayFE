@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Attendee } from "@/interfaces/interfaces";
+import { BASIS_URL } from "@/constants";
 
 const AttendeeDisplayPage = () => {
   console.log("new display page");
@@ -13,7 +14,7 @@ const AttendeeDisplayPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/techfridayAPI/getAllAttendees")
+      .get(`${BASIS_URL}/techfridayAPI/getAllAttendees`)
       .then((response) => {
         let meetingData: Attendee[] = [];
         for (let i = 0; i < response.data.length; i++) {

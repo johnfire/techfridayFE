@@ -8,7 +8,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useRouter } from "next/navigation";
 
-import { typeOfAttendee, BUTTON_STYLE, TEXT_BOLD } from "@/constants";
+import { typeOfAttendee, BUTTON_STYLE, TEXT_BOLD, BASIS_URL } from "@/constants";
 
 const AttendeeRegistrationPage = () => {
   const { push } = useRouter();
@@ -64,7 +64,7 @@ const AttendeeRegistrationPage = () => {
     };
 
     axios
-      .post("http://localhost:8000/techfridayAPI/saveOneAttendee/", payload)
+      .post(`${BASIS_URL}/techfridayAPI/saveOneAttendee/`, payload)
       .then(function (response) {
         if (response.status === 201) {
           push("/");

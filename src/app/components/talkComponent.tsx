@@ -7,7 +7,7 @@ import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-import { targetAudiences, STAR_SIZE, TEXT_BOLD, BUTTON_STYLE_TIGHT } from "@/constants";
+import { targetAudiences, STAR_SIZE, TEXT_BOLD, BUTTON_STYLE_TIGHT, BASIS_URL } from "@/constants";
 import axios from "axios";
 
 const TalkComponent = ({
@@ -18,7 +18,7 @@ const TalkComponent = ({
   speakerId,
   description,
   targetAudience,
-  meetingLink,
+  meetingLink, // link to video meeting. not on our site
   language,
   room,
 }: talk) => {
@@ -56,7 +56,7 @@ const TalkComponent = ({
       />
     );
 
-  const workingLink = `https://${meetingLink}`;
+  const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
 
   const handleSpeakerButtonPress = () => {
     const payload = {
@@ -66,7 +66,7 @@ const TalkComponent = ({
     };
 
     axios
-      .get("http://localhost:8000/techfridayAPI/getOneSpeaker", payload)
+      .get(`${BASIS_URL}/techfridayAPI/getOneSpeaker`, payload)
       .then((response: any) => {
         const displayData: any = `${response.data.speaker} <br/>${response.data.email} <br/>${response.data.bio}`;
         Swal.fire({
