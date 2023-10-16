@@ -89,12 +89,12 @@ const MainDisplayPage = () => {
             priority
           />
 
-          <Link
+          {/* <Link
             href="/attendeeRegistrationPage"
             className={BUTTON_STYLE}
           >
             Link to Attendee Registration
-          </Link>
+          </Link> */}
         </div>
 
         <div className=" items-center w-full justify-between font-mono text-sm ">
