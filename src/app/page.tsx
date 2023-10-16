@@ -43,6 +43,7 @@ const MainDisplayPage = () => {
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllTalks`)
       .then((response) => {
+        console.log("here is the response", response);
         let meetingData: talk[] = [];
         for (let i = 0; i < response.data.length; i++) {
           meetingData.push(response.data[i]);
