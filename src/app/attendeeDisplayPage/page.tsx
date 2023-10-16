@@ -29,7 +29,7 @@ const AttendeeDisplayPage = () => {
 
   const attendees = attendeeList.map((attendee) => {
     return (
-      <div>
+      <div key={attendee.id}>
         {attendee.id}:&nbsp;
         {attendee.firstName} &nbsp;
         {attendee.lastName} &nbsp;

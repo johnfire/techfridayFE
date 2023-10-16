@@ -15,7 +15,10 @@ const RoomColumn = ({ list, dataState }: Props) => {
   return (
     <div className="flex flex-col bg-amber-400 rounded-md w-full p-1">
       {list.map((item: talk) => (
-        <TalkComponent {...item} />
+        <TalkComponent
+          key={item.title}
+          {...item}
+        />
       ))}
     </div>
   );

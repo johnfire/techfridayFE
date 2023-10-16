@@ -407,7 +407,7 @@ const DataEntryPage = () => {
   });
 
   const speakerTalksDisplay = Array.from(speakerTalks).map((talk: any) => (
-    <div>&nbsp;&nbsp;{talk.title}</div>
+    <div key={talk.thisSpeaker}>&nbsp;&nbsp;{talk.title}</div>
   ));
 
   return (
