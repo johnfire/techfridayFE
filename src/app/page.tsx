@@ -12,6 +12,8 @@ import { rooms, BUTTON_STYLE, BASIS_URL } from "@/constants";
 
 const TARENT_SYMBOL_SIZE: number = 200;
 
+// trying to find the problem here ..
+
 function compareObjects(a: talk, b: talk) {
   if (a.startTime < b.startTime) {
     return -1;
@@ -40,11 +42,17 @@ const MainDisplayPage = () => {
   ]);
 
 console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
+  let townhall1talks: talk[] = [];
+  let townhall2talks: talk[] = [];
+  let blauerAffe: talk[] = [];
+  let n8schicht: talk[] = [];
+  let auzbiroom: talk[] = [];
 
   useEffect(() => {
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllTalks`)
       .then((response) => {
+        console.log("here is the response", response);
         let meetingData: talk[] = [];
         for (let i = 0; i < response.data.length; i++) {
           meetingData.push(response.data[i]);
@@ -56,14 +64,7 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
   }, []);
 
   if (dataState === false) return "loading";
-  console.log("past the loading stage")
-  let townhall1talks: talk[] = [];
-  let townhall2talks: talk[] = [];
-  let blauerAffe: talk[] = [];
-  let n8schicht: talk[] = [];
-  let auzbiroom: talk[] = [];
 
-  const setUpMeetingData = (meetingData: talk[]) => {
     townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
     townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
     blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
@@ -74,10 +75,25 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
     blauerAffe.sort(compareObjects);
     n8schicht.sort(compareObjects);
     auzbiroom.sort(compareObjects);
-  };
 
-  setUpMeetingData(meetingData);
   console.log("here is right before the render")
+
+  // const setUpMeetingData = (meetingData: talk[]) => {
+  townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
+  townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
+  blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
+  n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
+  auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
+  townhall1talks.sort(compareObjects);
+  townhall2talks.sort(compareObjects);
+  blauerAffe.sort(compareObjects);
+  n8schicht.sort(compareObjects);
+  auzbiroom.sort(compareObjects);
+  // };
+
+  // setUpMeetingData(meetingData);
+
+>>>>>>> 2aa92701dbbca8d3bd5be7cd6f9a811a43be9a15
   if (dataState === true) {
     return (
       <main className="flex flex-col items-center min-h-screen w-full p-5">
