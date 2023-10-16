@@ -12,6 +12,8 @@ import { rooms, BUTTON_STYLE, BASIS_URL } from "@/constants";
 
 const TARENT_SYMBOL_SIZE: number = 200;
 
+// trying to find the problem here ..
+
 function compareObjects(a: talk, b: talk) {
   if (a.startTime < b.startTime) {
     return -1;
@@ -39,6 +41,12 @@ const MainDisplayPage = () => {
     },
   ]);
 
+  let townhall1talks: talk[] = [];
+  let townhall2talks: talk[] = [];
+  let blauerAffe: talk[] = [];
+  let n8schicht: talk[] = [];
+  let auzbiroom: talk[] = [];
+
   useEffect(() => {
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllTalks`)
@@ -56,26 +64,20 @@ const MainDisplayPage = () => {
 
   if (dataState === false) return "loading";
 
-  let townhall1talks: talk[] = [];
-  let townhall2talks: talk[] = [];
-  let blauerAffe: talk[] = [];
-  let n8schicht: talk[] = [];
-  let auzbiroom: talk[] = [];
+  // const setUpMeetingData = (meetingData: talk[]) => {
+  townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
+  townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
+  blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
+  n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
+  auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
+  townhall1talks.sort(compareObjects);
+  townhall2talks.sort(compareObjects);
+  blauerAffe.sort(compareObjects);
+  n8schicht.sort(compareObjects);
+  auzbiroom.sort(compareObjects);
+  // };
 
-  const setUpMeetingData = (meetingData: talk[]) => {
-    townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
-    townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
-    blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
-    n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
-    auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
-    townhall1talks.sort(compareObjects);
-    townhall2talks.sort(compareObjects);
-    blauerAffe.sort(compareObjects);
-    n8schicht.sort(compareObjects);
-    auzbiroom.sort(compareObjects);
-  };
-
-  setUpMeetingData(meetingData);
+  // setUpMeetingData(meetingData);
 
   if (dataState === true) {
     return (
@@ -89,12 +91,12 @@ const MainDisplayPage = () => {
             priority
           />
 
-          {/* <Link
+          <Link
             href="/attendeeRegistrationPage"
             className={BUTTON_STYLE}
           >
             Link to Attendee Registration
-          </Link> */}
+          </Link>
         </div>
 
         <div className=" items-center w-full justify-between font-mono text-sm ">
