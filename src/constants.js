@@ -22,6 +22,6 @@ export const DEBUG = true;
 
 // export const BASIS_URL = "http://127.0.0.1:8000"; // development mode
 
-export const BASIS_URL = "https://pythonserver.tandkcybernetics.net:"; // test production mode
+export const BASIS_URL = "https://pythonserver.tandkcybernetics.net"; // test production mode
 
 // export const BASIS_URL = "http://tarent-solutions.com"; //final production mode

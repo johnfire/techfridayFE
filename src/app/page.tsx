@@ -39,6 +39,8 @@ const MainDisplayPage = () => {
     },
   ]);
 
+console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
+
   useEffect(() => {
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllTalks`)
@@ -54,7 +56,7 @@ const MainDisplayPage = () => {
   }, []);
 
   if (dataState === false) return "loading";
-
+  console.log("past the loading stage")
   let townhall1talks: talk[] = [];
   let townhall2talks: talk[] = [];
   let blauerAffe: talk[] = [];
@@ -75,7 +77,7 @@ const MainDisplayPage = () => {
   };
 
   setUpMeetingData(meetingData);
-
+  console.log("here is right before the render")
   if (dataState === true) {
     return (
       <main className="flex flex-col items-center min-h-screen w-full p-5">
