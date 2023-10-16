@@ -93,7 +93,6 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
 
   // setUpMeetingData(meetingData);
 
->>>>>>> 2aa92701dbbca8d3bd5be7cd6f9a811a43be9a15
   if (dataState === true) {
     return (
       <main className="flex flex-col items-center min-h-screen w-full p-5">
