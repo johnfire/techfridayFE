@@ -41,7 +41,7 @@ const MainDisplayPage = () => {
     },
   ]);
 
-console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
+  console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks/`);
   let townhall1talks: talk[] = [];
   let townhall2talks: talk[] = [];
   let blauerAffe: talk[] = [];
@@ -50,7 +50,7 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
 
   useEffect(() => {
     axios
-      .get(`${BASIS_URL}/techfridayAPI/getAllTalks`)
+      .get(`${BASIS_URL}/techfridayAPI/getAllTalks/`)
       .then((response) => {
         console.log("here is the response", response);
         let meetingData: talk[] = [];
@@ -65,18 +65,18 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
 
   if (dataState === false) return "loading";
 
-    townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
-    townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
-    blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
-    n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
-    auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
-    townhall1talks.sort(compareObjects);
-    townhall2talks.sort(compareObjects);
-    blauerAffe.sort(compareObjects);
-    n8schicht.sort(compareObjects);
-    auzbiroom.sort(compareObjects);
+  townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
+  townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
+  blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
+  n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
+  auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
+  townhall1talks.sort(compareObjects);
+  townhall2talks.sort(compareObjects);
+  blauerAffe.sort(compareObjects);
+  n8schicht.sort(compareObjects);
+  auzbiroom.sort(compareObjects);
 
-  console.log("here is right before the render")
+  console.log("here is right before the render");
 
   // const setUpMeetingData = (meetingData: talk[]) => {
   townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
@@ -105,11 +105,7 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
             priority
           />
 
-          <Link
-            href="/attendeeRegistrationPage"
-          >
-            Link to Attendee Registration
-          </Link>
+          <Link href="/attendeeRegistrationPage">Link to Attendee Registration</Link>
         </div>
 
         <div className=" items-center w-full justify-between font-mono text-sm ">
@@ -143,11 +139,7 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
         <br />
         <br />
 
-        <Link
-          href="/passPage"
-        >
-          Link to data entry
-        </Link> 
+        <Link href="/passPage">Link to data entry</Link>
       </main>
     );
   }
