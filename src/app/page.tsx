@@ -109,7 +109,7 @@ const MainDisplayPage = () => {
         </div>
 
         <div className=" items-center w-full justify-between font-mono text-sm ">
-          {/* <Header /> */}
+          <Header />
           <RoomHeader />
         </div>
         <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2">
