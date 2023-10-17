@@ -56,8 +56,8 @@ const TalkComponent = ({
   //     // />
   //   );
 
-  // const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
-  const workingLink = `go here `; // link to video meeting. not on our site
+  const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
+  // const workingLink = `go here `; // link to video meeting. not on our site
 
   const handleSpeakerButtonPress = () => {
     const payload = {
@@ -67,7 +67,7 @@ const TalkComponent = ({
     };
 
     axios
-      .get(`https://techfriday.tandkcybernetics.net/techfridayAPI/getOneSpeaker`, payload)
+      .get(`https://pythonserver.tandkcybernetics.net/techfridayAPI/getOneSpeaker/`, payload)
       .then((response: any) => {
         const displayData: any = `${response.data.speaker} <br/>${response.data.email} <br/>${response.data.bio}`;
         Swal.fire({
