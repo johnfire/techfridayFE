@@ -50,7 +50,7 @@ const MainDisplayPage = () => {
 
   useEffect(() => {
     axios
-      .get("https://pythonserver.tandkcybernetics.net/techfridayAPI/getAllTalks/")
+      .get(`https://${BASIS_URL}/techfridayAPI/getAllTalks/`)
       .then((response) => {
         console.log("here is the response", response);
         let meetingData: talk[] = [];
@@ -139,7 +139,7 @@ const MainDisplayPage = () => {
         <br />
         <br />
 
-        {/* <Link href="/passPage">Link to data entry</Link> */}
+        <Link href="/passPage">Link to data entry</Link>
       </main>
     );
   }

@@ -67,7 +67,7 @@ const TalkComponent = ({
     };
 
     axios
-      .get(`https://pythonserver.tandkcybernetics.net/techfridayAPI/getOneSpeaker/`, payload)
+      .get(`https://${BASIS_URL}/techfridayAPI/getOneSpeaker/`, payload)
       .then((response: any) => {
         const displayData: any = `${response.data.speaker} <br/>${response.data.email} <br/>${response.data.bio}`;
         Swal.fire({
