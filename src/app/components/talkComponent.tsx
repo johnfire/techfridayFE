@@ -56,8 +56,8 @@ const TalkComponent = ({
       />
     );
 
-  // const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
-  const workingLink = `go here `; // link to video meeting. not on our site
+  const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
+  // const workingLink = `go here `; // link to video meeting. not on our site
 
   const handleSpeakerButtonPress = () => {
     const payload = {
@@ -89,7 +89,13 @@ const TalkComponent = ({
       <div className="flex flex-col justify-between ">
         <div> Title: {title}</div>
         <div>
-          <button onClick={handleSpeakerButtonPress}> Speaker: &nbsp;&nbsp; {speakerName}</button>
+          <button
+            onClick={handleSpeakerButtonPress}
+            className={BUTTON_STYLE_TIGHT}
+          >
+            {" "}
+            Speaker: &nbsp;&nbsp; {speakerName}
+          </button>
         </div>
         <hr />
         <div className="flex flex-row justify-between ">
@@ -101,7 +107,7 @@ const TalkComponent = ({
         <div>{description}</div>
         <hr />
         <div>
-          <Link href={workingLink}>{meetingLink}</Link>
+          <a href={workingLink}>{meetingLink}</a>
         </div>
         <hr />
         <div className="flex flex-row justify-between ">
