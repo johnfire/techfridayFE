@@ -86,7 +86,7 @@ const TalkComponent = ({
       }}
     >
       <div className="flex flex-col justify-between ">
-        <div className={TEXT_BOLD}> Title: {title}</div>
+        <div > Title: {title}</div>
         <div>
           <button onClick={handleSpeakerButtonPress}> Speaker: &nbsp;&nbsp; {speakerName}</button>
         </div>
@@ -102,7 +102,6 @@ const TalkComponent = ({
         <div>
           <Link
             href={workingLink}
-            className={BUTTON_STYLE_TIGHT}
           >
             {meetingLink}
           </Link>

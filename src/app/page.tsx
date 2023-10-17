@@ -107,7 +107,6 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
 
           <Link
             href="/attendeeRegistrationPage"
-            className={BUTTON_STYLE}
           >
             Link to Attendee Registration
           </Link>
@@ -144,12 +143,11 @@ console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
         <br />
         <br />
 
-        {/* <Link
+        <Link
           href="/passPage"
-          className={BUTTON_STYLE}
         >
           Link to data entry
-        </Link> */}
+        </Link> 
       </main>
     );
   }
