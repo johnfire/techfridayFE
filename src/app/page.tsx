@@ -50,7 +50,7 @@ const MainDisplayPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASIS_URL}/techfridayAPI/getAllTalks/`)
+      .get("https://pythonserver.tandkcybernetics/techfridayAPI/getAllTalks/")
       .then((response) => {
         console.log("here is the response", response);
         let meetingData: talk[] = [];
