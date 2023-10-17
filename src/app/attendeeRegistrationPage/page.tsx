@@ -4,8 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
-import Dropdown from "react-dropdown";
-import "react-dropdown/style.css";
+// import Dropdown from "react-dropdown";
+// import "react-dropdown/style.css";
 import { useRouter } from "next/navigation";
 
 import { typeOfAttendee, BUTTON_STYLE, TEXT_BOLD, BASIS_URL } from "@/constants";
@@ -156,7 +156,7 @@ const AttendeeRegistrationPage = () => {
               />
             </label>
             <br />
-            <label>
+            {/* <label>
               type of
               attendee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Dropdown
@@ -165,7 +165,7 @@ const AttendeeRegistrationPage = () => {
                 value={attendeeType}
                 placeholder="Select an option"
               />
-            </label>
+            </label> */}
             <br />
             <input
               type="submit"
