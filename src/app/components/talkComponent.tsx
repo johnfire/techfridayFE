@@ -23,38 +23,38 @@ const TalkComponent = ({
   room,
 }: talk) => {
   let talkSymbol: any = "*";
-  // if (targetAudience === targetAudiences[0])
-  //   talkSymbol = (
-  //     // <Image
-  //     //   src="/star-green.svg"
-  //     //   alt="green"
-  //     //   width={STAR_SIZE}
-  //     //   height={STAR_SIZE}
-  //     //   priority
-  //     // />
-  //   );
+  if (targetAudience === targetAudiences[0])
+    talkSymbol = (
+      <Image
+        src="/star-green.svg"
+        alt="green"
+        width={STAR_SIZE}
+        height={STAR_SIZE}
+        priority
+      />
+    );
 
-  // if (targetAudience === targetAudiences[1])
-  //   talkSymbol = (
-  //     // <Image
-  //     //   src="/star-yellow.svg"
-  //     //   alt="yellow"
-  //     //   width={STAR_SIZE}
-  //     //   height={STAR_SIZE}
-  //     //   priority
-  //     // />
-  //   );
+  if (targetAudience === targetAudiences[1])
+    talkSymbol = (
+      <Image
+        src="/star-yellow.svg"
+        alt="yellow"
+        width={STAR_SIZE}
+        height={STAR_SIZE}
+        priority
+      />
+    );
 
-  // if (targetAudience === targetAudiences[2])
-  //   talkSymbol = (
-  //     // <Image
-  //     //   src="/star-red.svg"
-  //     //   alt="red"
-  //     //   width={STAR_SIZE}
-  //     //   height={STAR_SIZE}
-  //     //   priority
-  //     // />
-  //   );
+  if (targetAudience === targetAudiences[2])
+    talkSymbol = (
+      <Image
+        src="/star-red.svg"
+        alt="red"
+        width={STAR_SIZE}
+        height={STAR_SIZE}
+        priority
+      />
+    );
 
   // const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
   const workingLink = `go here `; // link to video meeting. not on our site
