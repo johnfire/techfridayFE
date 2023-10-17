@@ -41,6 +41,7 @@ const MainDisplayPage = () => {
     },
   ]);
 
+console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks`)
   let townhall1talks: talk[] = [];
   let townhall2talks: talk[] = [];
   let blauerAffe: talk[] = [];
@@ -63,6 +64,19 @@ const MainDisplayPage = () => {
   }, []);
 
   if (dataState === false) return "loading";
+
+    townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
+    townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
+    blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
+    n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
+    auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
+    townhall1talks.sort(compareObjects);
+    townhall2talks.sort(compareObjects);
+    blauerAffe.sort(compareObjects);
+    n8schicht.sort(compareObjects);
+    auzbiroom.sort(compareObjects);
+
+  console.log("here is right before the render")
 
   // const setUpMeetingData = (meetingData: talk[]) => {
   townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
@@ -93,7 +107,6 @@ const MainDisplayPage = () => {
 
           <Link
             href="/attendeeRegistrationPage"
-            className={BUTTON_STYLE}
           >
             Link to Attendee Registration
           </Link>
@@ -130,12 +143,11 @@ const MainDisplayPage = () => {
         <br />
         <br />
 
-        {/* <Link
+        <Link
           href="/passPage"
-          className={BUTTON_STYLE}
         >
           Link to data entry
-        </Link> */}
+        </Link> 
       </main>
     );
   }
