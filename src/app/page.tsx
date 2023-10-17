@@ -139,7 +139,7 @@ const MainDisplayPage = () => {
         <br />
         <br />
 
-        <Link href="/passPage">Link to data entry</Link>
+        {/* <Link href="/passPage">Link to data entry</Link> */}
       </main>
     );
   }
