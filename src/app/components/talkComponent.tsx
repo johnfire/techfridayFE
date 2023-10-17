@@ -56,8 +56,8 @@ const TalkComponent = ({
   //     // />
   //   );
 
-  const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
-  // const workingLink = `go here `; // link to video meeting. not on our site
+  // const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
+  const workingLink = `go here `; // link to video meeting. not on our site
 
   const handleSpeakerButtonPress = () => {
     const payload = {
