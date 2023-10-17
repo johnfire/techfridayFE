@@ -41,7 +41,7 @@ const MainDisplayPage = () => {
     },
   ]);
 
-  console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks/`);
+  // console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks/`);
   let townhall1talks: talk[] = [];
   let townhall2talks: talk[] = [];
   let blauerAffe: talk[] = [];

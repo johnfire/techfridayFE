@@ -66,7 +66,7 @@ const TalkComponent = ({
     };
 
     axios
-      .get(`${BASIS_URL}/techfridayAPI/getOneSpeaker`, payload)
+      .get(`https://techfriday.tandkcybernetics.net/techfridayAPI/getOneSpeaker`, payload)
       .then((response: any) => {
         const displayData: any = `${response.data.speaker} <br/>${response.data.email} <br/>${response.data.bio}`;
         Swal.fire({
@@ -86,7 +86,7 @@ const TalkComponent = ({
       }}
     >
       <div className="flex flex-col justify-between ">
-        <div > Title: {title}</div>
+        <div> Title: {title}</div>
         <div>
           <button onClick={handleSpeakerButtonPress}> Speaker: &nbsp;&nbsp; {speakerName}</button>
         </div>
@@ -100,11 +100,7 @@ const TalkComponent = ({
         <div>{description}</div>
         <hr />
         <div>
-          <Link
-            href={workingLink}
-          >
-            {meetingLink}
-          </Link>
+          <Link href={workingLink}>{meetingLink}</Link>
         </div>
         <hr />
         <div className="flex flex-row justify-between ">
