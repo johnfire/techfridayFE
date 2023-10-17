@@ -96,7 +96,7 @@ const MainDisplayPage = () => {
   if (dataState === true) {
     return (
       <main className="flex flex-col items-center min-h-screen w-full p-5">
-        <div className="flex flex-row items-center justify-between w-full p-5">
+        {/* <div className="flex flex-row items-center justify-between w-full p-5">
           <Image
             src="/Qvest-digital-mockup.svg"
             alt="tarent"
@@ -106,7 +106,7 @@ const MainDisplayPage = () => {
           />
 
           <Link href="/attendeeRegistrationPage">Link to Attendee Registration</Link>
-        </div>
+        </div> */}
 
         <div className=" items-center w-full justify-between font-mono text-sm ">
           <Header />
