@@ -1,7 +1,6 @@
 import React from "react";
 import { speaker, talk } from "@/interfaces/interfaces";
 import Image from "next/image";
-import Link from "next/link";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -87,7 +86,7 @@ const TalkComponent = ({
       }}
     >
       <div className="flex flex-col justify-between ">
-        <div> Title: {title}</div>
+        <div className={TEXT_BOLD}> Title: {title}</div>
         <div>
           <button
             onClick={handleSpeakerButtonPress}
@@ -107,7 +106,12 @@ const TalkComponent = ({
         <div>{description}</div>
         <hr />
         <div>
-          <a href={workingLink}>{meetingLink}</a>
+          <a
+            href={workingLink}
+            className={BUTTON_STYLE_TIGHT}
+          >
+            {meetingLink}
+          </a>
         </div>
         <hr />
         <div className="flex flex-row justify-between ">
