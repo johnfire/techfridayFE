@@ -414,7 +414,7 @@ const DataEntryPage = () => {
   });
 
   const speakerTalksDisplay = Array.from(speakerTalks).map((talk: any) => (
-    <div key={talk.thisSpeaker}>&nbsp;&nbsp;{talk.title}</div>
+    <div key={talk.thisSpeaker}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{talk.title}</div>
   ));
 
   return (
@@ -492,7 +492,7 @@ const DataEntryPage = () => {
               />
             </label>
             <br />
-            <label>
+            <label className="flex flex-row justify-start">
               Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <textarea
                 name="description"
