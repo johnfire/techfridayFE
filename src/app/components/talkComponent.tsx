@@ -111,14 +111,16 @@ const TalkComponent = ({
         <div>Description:</div>
         <div>{description}</div>
         <hr />
-        <div>
-          <a
-            href={workingLink}
-            className={BUTTON_STYLE}
-          >
-            {meetingLink}
-          </a>
-        </div>
+        {meetingLink && (
+          <div>
+            <a
+              href={workingLink}
+              className={BUTTON_STYLE}
+            >
+              {meetingLink}
+            </a>
+          </div>
+        )}
         <hr />
         <div className="flex flex-row justify-between ">
           {talkSymbol}
