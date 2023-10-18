@@ -59,6 +59,7 @@ const DataEntryPage = () => {
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllSpeakers`)
       .then((response1) => {
+        console.log("here is the response we got ", response1);
         let speakerData: speaker[] = [];
         for (let i = 0; i < response1.data.length; i++) {
           speakerData.push(response1.data[i]);
@@ -614,7 +615,9 @@ const DataEntryPage = () => {
             <div className="flex flex-row justify-start">
               <p> Talks: </p>
               {speakerTalksDisplay.length > 0 && <div>{speakerTalksDisplay}</div>}
-              {speakerTalksDisplay.length === 0 && <div>None</div>}
+              {speakerTalksDisplay.length === 0 && (
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None</div>
+              )}
             </div>
             <br />
             <label className="flex flex-row justify-start">
