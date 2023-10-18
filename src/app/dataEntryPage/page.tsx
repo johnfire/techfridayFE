@@ -579,7 +579,7 @@ const DataEntryPage = () => {
           {meetingList}
           <br />
         </div>
-        <div className="flex flex-col w-full items-center font-mono text-sm bg-amber-100">
+        <div className="flex flex-col items-center w-full justify-between font-mono text-sm bg-amber-100">
           <br />
           <p className={TEXT_BOLD}>Enter Speaker Data Here:</p>
           <br />
