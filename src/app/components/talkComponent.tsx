@@ -10,7 +10,7 @@ import { targetAudiences, STAR_SIZE, BASIS_URL } from "@/constants";
 import axios from "axios";
 
 const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
-const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
+const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white w-full";
 const TEXT_BOLD = "text-lg font-semibold";
 const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER = "border-4 border-black border-solid";
