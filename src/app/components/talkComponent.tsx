@@ -6,8 +6,7 @@ import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-import Button from "./button";
-import { targetAudiences, STAR_SIZE, TEXT_BOLD, BASIS_URL } from "@/constants";
+import { targetAudiences, STAR_SIZE, TEXT_BOLD, BASIS_URL, BUTTON_STYLE_TIGHT } from "@/constants";
 import axios from "axios";
 
 const TalkComponent = ({
@@ -89,7 +88,13 @@ const TalkComponent = ({
       <div className="flex flex-col justify-between ">
         <div className={TEXT_BOLD}> Title: {title}</div>
         <div>
-          <Button onClick={handleSpeakerButtonPress}> Speaker: &nbsp;&nbsp; {speakerName}</Button>
+          <button
+            onClick={handleSpeakerButtonPress}
+            className={BUTTON_STYLE_TIGHT}
+          >
+            {" "}
+            Speaker: &nbsp;&nbsp; {speakerName}
+          </button>
         </div>
         <hr />
         <div className="flex flex-row justify-between ">
