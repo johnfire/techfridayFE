@@ -11,6 +11,7 @@ import { talk } from "@/interfaces/interfaces";
 import { rooms, BASIS_URL } from "@/constants";
 
 const TARENT_SYMBOL_SIZE: number = 200;
+
 const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
 const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
 const TEXT_BOLD = "text-lg font-semibold";
@@ -110,7 +111,12 @@ const MainDisplayPage = () => {
             priority
           />
 
-          <Link href="/attendeeRegistrationPage">Link to Attendee Registration</Link>
+          <Link
+            href="/attendeeRegistrationPage"
+            className={BUTTON_STYLE_TIGHT}
+          >
+            Link to Attendee Registration
+          </Link>
         </div>
 
         <div className=" items-center w-full justify-between font-mono text-sm ">
@@ -144,7 +150,12 @@ const MainDisplayPage = () => {
         <br />
         <br />
 
-        <Link href="/passPage">Link to data entry</Link>
+        <Link
+          href="/passPage"
+          className={BUTTON_STYLE_TIGHT}
+        >
+          Link to data entry
+        </Link>
       </main>
     );
   }

@@ -5,7 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { BUTTON_STYLE, TEXT_BOLD } from "@/constants";
+// doesnt work in production...  -.-
+// import { BUTTON_STYLE, TEXT_BOLD } from "@/constants";
+
+const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
+const TEXT_BOLD = "text-lg font-semibold";
+const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
+const MEDIUM_BORDER = "border-4 border-black border-solid";
 
 const PASS_PHRASE = "blah";
 

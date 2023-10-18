@@ -8,7 +8,13 @@ import axios from "axios";
 // import "react-dropdown/style.css";
 import { useRouter } from "next/navigation";
 
-import { typeOfAttendee, BUTTON_STYLE, TEXT_BOLD, BASIS_URL } from "@/constants";
+import { typeOfAttendee, BASIS_URL } from "@/constants";
+
+const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
+const TEXT_BOLD = "text-lg font-semibold";
+const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
+const MEDIUM_BORDER = "border-4 border-black border-solid";
 
 const AttendeeRegistrationPage = () => {
   const { push } = useRouter();

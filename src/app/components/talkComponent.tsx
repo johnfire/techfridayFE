@@ -6,8 +6,14 @@ import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-import { targetAudiences, STAR_SIZE, TEXT_BOLD, BASIS_URL, BUTTON_STYLE_TIGHT } from "@/constants";
+import { targetAudiences, STAR_SIZE, BASIS_URL } from "@/constants";
 import axios from "axios";
+
+const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
+const TEXT_BOLD = "text-lg font-semibold";
+const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
+const MEDIUM_BORDER = "border-4 border-black border-solid";
 
 const TalkComponent = ({
   startTime,
@@ -106,7 +112,12 @@ const TalkComponent = ({
         <div>{description}</div>
         <hr />
         <div>
-          <a href={workingLink}>{meetingLink}</a>
+          <a
+            href={workingLink}
+            className={BUTTON_STYLE_TIGHT}
+          >
+            {meetingLink}
+          </a>
         </div>
         <hr />
         <div className="flex flex-row justify-between ">
