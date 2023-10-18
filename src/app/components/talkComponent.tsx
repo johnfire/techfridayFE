@@ -96,7 +96,7 @@ const TalkComponent = ({
         <div>
           <button
             onClick={handleSpeakerButtonPress}
-            className={BUTTON_STYLE_TIGHT}
+            className={BUTTON_STYLE}
           >
             {" "}
             Speaker: &nbsp;&nbsp; {speakerName}
@@ -114,7 +114,7 @@ const TalkComponent = ({
         <div>
           <a
             href={workingLink}
-            className={BUTTON_STYLE_TIGHT}
+            className={BUTTON_STYLE}
           >
             {meetingLink}
           </a>

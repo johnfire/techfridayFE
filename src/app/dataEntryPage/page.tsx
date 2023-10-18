@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState, MouseEvent, MouseEventHandler } from "react";
 import Link from "next/link";
-// import Dropdown from "react-dropdown";
-// import "react-dropdown/style.css";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import axios from "axios";
 
 import { talk, speaker } from "@/interfaces/interfaces";
@@ -505,42 +505,42 @@ const DataEntryPage = () => {
             <br />
             <label>
               Speaker:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {/* <Dropdown
+              <Dropdown
                 options={speakerChoices}
                 onChange={handleChangeSpeaker}
                 value={speaker}
                 placeholder="Select an option"
-              /> */}
+              />
             </label>
             <br />
             <label>
               Language:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {/* <Dropdown
+              <Dropdown
                 options={languages}
                 onChange={handleChangeLangauge}
                 value={language}
                 placeholder="Select an option"
-              /> */}
+              />
             </label>
             <br />
             <label>
               Target Audience:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {/* <Dropdown
+              <Dropdown
                 options={targetAudiences}
                 onChange={handleChangeTargetAudience}
                 value={targetAudience}
                 placeholder="Select an option"
-              /> */}
+              />
             </label>
             <br />
             <label>
               Room:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {/* <Dropdown
+              <Dropdown
                 options={rooms}
                 onChange={handleChangeRoom}
                 value={room}
                 placeholder="Select an option"
-              /> */}
+              />
             </label>
             <br />
             {!editMeeting && (

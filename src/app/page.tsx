@@ -113,7 +113,7 @@ const MainDisplayPage = () => {
 
           <Link
             href="/attendeeRegistrationPage"
-            className={BUTTON_STYLE_TIGHT}
+            className={BUTTON_STYLE}
           >
             Link to Attendee Registration
           </Link>
@@ -152,7 +152,7 @@ const MainDisplayPage = () => {
 
         <Link
           href="/passPage"
-          className={BUTTON_STYLE_TIGHT}
+          className={BUTTON_STYLE}
         >
           Link to data entry
         </Link>
