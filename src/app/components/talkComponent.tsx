@@ -112,13 +112,8 @@ const TalkComponent = ({
         <div>{description}</div>
         <hr />
         {meetingLink && (
-          <div>
-            <a
-              href={workingLink}
-              className={BUTTON_STYLE_TIGHT}
-            >
-              {meetingLink}
-            </a>
+          <div className={BUTTON_STYLE_TIGHT}>
+            <a href={workingLink}>{meetingLink}</a>
           </div>
         )}
         <hr />
