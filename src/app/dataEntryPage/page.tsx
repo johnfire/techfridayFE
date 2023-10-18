@@ -585,7 +585,7 @@ const DataEntryPage = () => {
           <br />
           <form
             // onSubmit={handleSubmitSpeaker}
-            className="flex flex-col"
+            className="flex flex-col justify-start"
           >
             <label>ID number :&nbsp;&nbsp; {speakerId}</label>
             <br />
@@ -612,7 +612,8 @@ const DataEntryPage = () => {
             </label>
             <br />
             <p> Talks: </p>
-            {speakerTalksDisplay}
+            {speakerTalksDisplay && <div>{speakerTalksDisplay}</div>}
+            {!speakerTalksDisplay && <div>None</div>}
             <br />
             <label>
               Bio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
