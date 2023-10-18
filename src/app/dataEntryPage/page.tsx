@@ -652,10 +652,10 @@ const DataEntryPage = () => {
                 </button>
               </div>
             )}
-            <br />
-            {speakerList}
-            <br />
           </form>
+          <br />
+          {speakerList}
+          <br />
         </div>
       </div>
     </main>
