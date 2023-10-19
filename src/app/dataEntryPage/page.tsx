@@ -40,6 +40,8 @@ const DataEntryPage = () => {
   const [speakerName, setSpeakerName] = useState<string>("");
   const [speakerBio, setSpeakerBio] = useState<string>("");
   const [speakerEmail, setSpeakerEmail] = useState<string>("");
+  const [speakerLinkedin, setSpeakerLinkedin] = useState<string>("");
+  const [speakerMobil, setSpeakerMobil] = useState<string>("");
   const [speakerTalks, setSpeakerTalks] = useState<any>("");
 
   const [speakerChoices, setSpeakerChoices] = useState<string[]>([""]);
@@ -149,7 +151,7 @@ const DataEntryPage = () => {
       });
   };
 
-  const handleSubmitEditMeeting = (event: any) => {
+  const handleEditMeeting = (event: any) => {
     event.preventDefault();
 
     const payload = {
@@ -187,7 +189,7 @@ const DataEntryPage = () => {
       });
   };
 
-  const handleSubmitdeleteMeeting = (event: any) => {
+  const handleDeleteMeeting = (event: any) => {
     event.preventDefault();
 
     // fire warning button here !!!!!
@@ -232,12 +234,20 @@ const DataEntryPage = () => {
     setSpeakerBio(event.target.value);
   };
 
-  const handleChangeTalks = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setSpeakerTalks(event?.target.value);
-  };
+  // const handleChangeTalks = (event: { target: { value: React.SetStateAction<string> } }) => {
+  //   setSpeakerTalks(event?.target.value);
+  // };
 
   const handleChangeEmail = (event: { target: { value: React.SetStateAction<string> } }) => {
     setSpeakerEmail(event?.target.value);
+  };
+
+  const handleChangeMobil = (event: { target: { value: React.SetStateAction<string> } }) => {
+    setSpeakerMobil(event?.target.value);
+  };
+
+  const handleChangeLinkedinLink = (event: { target: { value: React.SetStateAction<string> } }) => {
+    setSpeakerLinkedin(event?.target.value);
   };
 
   const handleSubmitSpeaker = (event: React.MouseEvent) => {
@@ -247,6 +257,8 @@ const DataEntryPage = () => {
       speakerName: speakerName,
       speakerBio: speakerBio,
       speakerEmail: speakerEmail,
+      speakerMobile: speakerMobil,
+      speakerLinkedin: speakerLinkedin,
     };
 
     axios
@@ -269,6 +281,8 @@ const DataEntryPage = () => {
       });
     setSpeakerName("");
     setSpeakerEmail("");
+    setSpeakerMobil("");
+    setSpeakerLinkedin("");
     setSpeakerBio("");
     setSpeakerTalks("");
     window.location.reload();
@@ -283,6 +297,8 @@ const DataEntryPage = () => {
       speakerName: speakerName,
       speakerBio: speakerBio,
       speakerEmail: speakerEmail,
+      speakerMobil: speakerMobil,
+      speakerLinkedin: speakerLinkedin,
     };
 
     axios
@@ -301,6 +317,9 @@ const DataEntryPage = () => {
         setSpeakerName("");
         setSpeakerBio("");
         setSpeakerEmail("");
+        setSpeakerMobil("");
+        setSpeakerLinkedin("");
+        setSpeakerTalks("");
         window.location.reload();
       })
       .catch(function (error) {
@@ -336,6 +355,9 @@ const DataEntryPage = () => {
         setSpeakerName("");
         setSpeakerBio("");
         setSpeakerEmail("");
+        setSpeakerMobil("");
+        setSpeakerLinkedin("");
+        setSpeakerTalks("");
       })
       .catch(function (error) {
         console.log("here is an error", error);
@@ -369,6 +391,9 @@ const DataEntryPage = () => {
       setSpeakerId(thisSpeaker[0].id);
       setSpeakerName(thisSpeaker[0].speaker);
       setSpeakerEmail(thisSpeaker[0].email);
+      if (typeof thisSpeaker[0].mobil !== "undefined") setSpeakerMobil(thisSpeaker[0].mobil);
+      if (typeof thisSpeaker[0].linkedIn !== "undefined")
+        setSpeakerLinkedin(thisSpeaker[0].linkedIn);
       setSpeakerBio(thisSpeaker[0].bio);
       setSpeakerTalks(thisSpeaker[0].talks);
       setEditSpeaker(true);
@@ -558,14 +583,14 @@ const DataEntryPage = () => {
               <div className="flex flex row justify-around w-full">
                 <button
                   type="submit"
-                  onClick={handleSubmitEditMeeting}
+                  onClick={handleEditMeeting}
                   className={BUTTON_STYLE}
                 >
                   Edit Meeting
                 </button>
                 <button
                   type="submit"
-                  onClick={handleSubmitdeleteMeeting}
+                  onClick={handleDeleteMeeting}
                   className={BUTTON_STYLE}
                 >
                   Delete Meeting
@@ -608,6 +633,26 @@ const DataEntryPage = () => {
                 name="email"
                 value={speakerEmail}
                 onChange={handleChangeEmail}
+                style={{ width: "370px", border: "1px solid" }}
+              />
+            </label>
+            <label>
+              Mobile #:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input
+                type="text"
+                name="mobil"
+                value={speakerEmail}
+                onChange={handleChangeMobil}
+                style={{ width: "370px", border: "1px solid" }}
+              />
+            </label>
+            <label>
+              LinkedIn Link:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input
+                type="text"
+                name="mobil"
+                value={speakerLinkedin}
+                onChange={handleChangeLinkedinLink}
                 style={{ width: "370px", border: "1px solid" }}
               />
             </label>

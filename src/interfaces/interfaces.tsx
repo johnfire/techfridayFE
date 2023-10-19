@@ -16,6 +16,8 @@ export interface speaker {
   id?: number;
   speaker: string;
   email: string;
+  mobil?: string;
+  linkedIn?: string;
   bio: string;
   talks?: number[];
 }
@@ -25,6 +27,7 @@ export interface Attendee {
   firstName: string;
   lastName: string;
   email: string;
+
   bio?: string;
   company: string;
   telephone?: string;
