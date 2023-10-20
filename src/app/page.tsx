@@ -137,16 +137,16 @@ const MainDisplayPage = () => {
 
           <div className="bg-pink-300 w-full h-full flex justify-center items-center">
             <TalkComponent
-              title={""}
-              speakerName={""}
-              speakerId={0}
-              language={""}
-              meetingLink={""}
-              startTime={""}
-              endTime={""}
-              description={""}
-              targetAudience={""}
-              room={""}
+              title={townhall1talks[0].title}
+              speakerName={townhall1talks[0].speakerName}
+              speakerId={townhall1talks[0].speakerId}
+              language={townhall1talks[0].language}
+              meetingLink={townhall1talks[0].meetingLink}
+              startTime={townhall1talks[0].startTime}
+              endTime={townhall1talks[0].endTime}
+              description={townhall1talks[0].description}
+              targetAudience={townhall1talks[0].targetAudience}
+              room={townhall1talks[0].room}
             />
           </div>
           <div className="bg-blue-300 w-full h-full flex justify-center items-center">3</div>
@@ -154,11 +154,11 @@ const MainDisplayPage = () => {
           <div className="bg-pink-300 w-full h-full flex justify-center items-center">4</div>
           <div className="bg-blue-300 w-full h-full flex justify-center items-center">5</div>
           <div className="bg-red-500 col-span-4 ">pause</div>
-          <div className="bg-blue-300 w-full h-full">7</div>
+          <div className="bg-blue-3008 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
-          <div className="bg-red-500 col-span-4 ">pause</div>
+          <div className="bg-red-500 col-8span-4 ">pause</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
           <div className="bg-pink-300 w-full h-full">4</div>
