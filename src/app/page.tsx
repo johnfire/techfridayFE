@@ -126,7 +126,7 @@ const MainDisplayPage = () => {
 
         <p>test for here</p>
 
-        <div className="container w-full m-auto grid grid-cols-4 grid-rows-13 place-items-stretch justify-between gap-3">
+        <div className="container w-full m-auto grid grid-cols-4 grid-rows-layout place-items-stretch justify-between gap-3">
           <div className="bg-amber-600 col-span-4 "> introduction</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
