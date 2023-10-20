@@ -125,7 +125,7 @@ const MainDisplayPage = () => {
         </div>
 
         <div className="container w-full m-auto grid grid-cols-4 grid-rows-13 place-items-stretch justify-between gap-3">
-          <div className="bg-blue-300 w-full h-full">1</div>
+          <div className="bg-blue-300 col-span-4">1</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
           <div className="bg-pink-300 w-full h-full">4</div>
