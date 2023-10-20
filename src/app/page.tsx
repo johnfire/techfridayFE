@@ -124,47 +124,50 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
 
+        <p>test for here</p>
+
         <div className="container w-full m-auto grid grid-cols-4 grid-rows-13 place-items-stretch justify-between gap-3">
-          <div className="bg-blue-300 col-span-4 ">1</div>
+          <div className="bg-amber-600 col-span-4 "> introduction</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
           <div className="bg-pink-300 w-full h-full">4</div>
           <div className="bg-blue-300 w-full h-full">5</div>
-          <div className="bg-pink-300 col-span-4 w-full h-full">6</div>
+          <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-blue-300 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
-          <div className="bg-blue-300 w-full h-full">1</div>
+          <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
           <div className="bg-pink-300 w-full h-full">4</div>
           <div className="bg-blue-300 w-full h-full">5</div>
-          <div className="bg-pink-300 w-full h-full">6</div>
+          <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-blue-300 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
-          <div className="bg-blue-300 w-full h-full">1</div>
+          <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
           <div className="bg-pink-300 w-full h-full">4</div>
           <div className="bg-blue-300 w-full h-full">5</div>
-          <div className="bg-pink-300 w-full h-full">6</div>
+          <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-blue-300 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
-          <div className="bg-blue-300 w-full h-full">1</div>
+          <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
           <div className="bg-pink-300 w-full h-full">4</div>
           <div className="bg-blue-300 w-full h-full">5</div>
-          <div className="bg-pink-300 w-full h-full">6</div>
+          <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-blue-300 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
+          <div className="bg-red-500 col-span-4 ">winterfeier</div>
         </div>
         {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2">
           <RoomColumn
