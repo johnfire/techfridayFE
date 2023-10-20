@@ -124,8 +124,8 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
         {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2"> */}
-        <div className="grid grid-cols-4 grid-rows-15 place-items-start">
-          <div className="bg-blue-300 w-full h-full">1</div>
+        <div className="grid grid-cols-4 grid-rows-15 place-items-start w-full justfy-evenly">
+          <div className="bg-blue-300 ">1</div>
           <div className="bg-pink-300 ">2</div>
           <div className="bg-blue-300 ">3</div>
           <div className="bg-pink-300 ">4</div>
