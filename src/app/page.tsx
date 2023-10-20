@@ -124,48 +124,49 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
         {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2"> */}
-        <div className="grid grid-cols-4 grid-rows-15 place-items-start w-full justfy-evenly">
-          <div className="bg-blue-300 ">1</div>
-          <div className="bg-pink-300 ">2</div>
-          <div className="bg-blue-300 ">3</div>
-          <div className="bg-pink-300 ">4</div>
-          <div className="bg-blue-300 ">5</div>
-          <div className="bg-pink-300 ">6</div>
-          <div className="bg-blue-300 ">7</div>
-          <div className="bg-pink-300 ">8</div>
-          <div className="bg-blue-300 ">9</div>
-          <div className="bg-pink-300 ">10</div>
-          <div className="bg-blue-300 w-full h-full">1</div>
-          <div className="bg-pink-300 ">2</div>
-          <div className="bg-blue-300 ">3</div>
-          <div className="bg-pink-300 ">4</div>
-          <div className="bg-blue-300 ">5</div>
-          <div className="bg-pink-300 ">6</div>
-          <div className="bg-blue-300 ">7</div>
-          <div className="bg-pink-300 ">8</div>
-          <div className="bg-blue-300 ">9</div>
-          <div className="bg-pink-300 ">10</div>
-          <div className="bg-blue-300 w-full h-full">1</div>
-          <div className="bg-pink-300 ">2</div>
-          <div className="bg-blue-300 ">3</div>
-          <div className="bg-pink-300 ">4</div>
-          <div className="bg-blue-300 ">5</div>
-          <div className="bg-pink-300 ">6</div>
-          <div className="bg-blue-300 ">7</div>
-          <div className="bg-pink-300 ">8</div>
-          <div className="bg-blue-300 ">9</div>
-          <div className="bg-pink-300 ">10</div>
-          <div className="bg-blue-300 w-full h-full">1</div>
-          <div className="bg-pink-300 ">2</div>
-          <div className="bg-blue-300 ">3</div>
-          <div className="bg-pink-300 ">4</div>
-          <div className="bg-blue-300 ">5</div>
-          <div className="bg-pink-300 ">6</div>
-          <div className="bg-blue-300 ">7</div>
-          <div className="bg-pink-300 ">8</div>
-          <div className="bg-blue-300 ">9</div>
-          <div className="bg-pink-300 ">10</div>
-          {/* <RoomColumn
+        <div className="flex w-full items-center justify-center">
+          <div className="grid grid-cols-4 grid-rows-15 place-items-start w-full justfy-center">
+            <div className="bg-blue-300 ">1</div>
+            <div className="bg-pink-300 ">2</div>
+            <div className="bg-blue-300 ">3</div>
+            <div className="bg-pink-300 ">4</div>
+            <div className="bg-blue-300 ">5</div>
+            <div className="bg-pink-300 ">6</div>
+            <div className="bg-blue-300 ">7</div>
+            <div className="bg-pink-300 ">8</div>
+            <div className="bg-blue-300 ">9</div>
+            <div className="bg-pink-300 ">10</div>
+            <div className="bg-blue-300 w-full h-full">1</div>
+            <div className="bg-pink-300 ">2</div>
+            <div className="bg-blue-300 ">3</div>
+            <div className="bg-pink-300 ">4</div>
+            <div className="bg-blue-300 ">5</div>
+            <div className="bg-pink-300 ">6</div>
+            <div className="bg-blue-300 ">7</div>
+            <div className="bg-pink-300 ">8</div>
+            <div className="bg-blue-300 ">9</div>
+            <div className="bg-pink-300 ">10</div>
+            <div className="bg-blue-300 w-full h-full">1</div>
+            <div className="bg-pink-300 ">2</div>
+            <div className="bg-blue-300 ">3</div>
+            <div className="bg-pink-300 ">4</div>
+            <div className="bg-blue-300 ">5</div>
+            <div className="bg-pink-300 ">6</div>
+            <div className="bg-blue-300 ">7</div>
+            <div className="bg-pink-300 ">8</div>
+            <div className="bg-blue-300 ">9</div>
+            <div className="bg-pink-300 ">10</div>
+            <div className="bg-blue-300 w-full h-full">1</div>
+            <div className="bg-pink-300 ">2</div>
+            <div className="bg-blue-300 ">3</div>
+            <div className="bg-pink-300 ">4</div>
+            <div className="bg-blue-300 ">5</div>
+            <div className="bg-pink-300 ">6</div>
+            <div className="bg-blue-300 ">7</div>
+            <div className="bg-pink-300 ">8</div>
+            <div className="bg-blue-300 ">9</div>
+            <div className="bg-pink-300 ">10</div>
+            {/* <RoomColumn
             list={townhall1talks}
             dataState={dataState}
           />
@@ -185,6 +186,7 @@ const MainDisplayPage = () => {
             list={auzbiroom}
             dataState={dataState}
           /> */}
+          </div>
         </div>
         <br />
         <br />
