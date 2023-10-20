@@ -124,7 +124,7 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
 
-        <div className="flex w-full items-center justify-center">
+        <div className="flex min-w-screen items-center justify-center">
           <div className="grid grid-cols-4 grid-rows-15 place-items-stretch justify-between gap-3">
             <div className="bg-blue-300 w-full h-full">1</div>
             <div className="bg-pink-300 w-full h-full">2</div>
