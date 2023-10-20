@@ -124,8 +124,8 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
         {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2"> */}
-        <div className="grid grid-cols-4 grid-tempolate-rows: repeat(15, minmax(0,1fr)) place-items-start">
-          <div className="bg-blue-300 ">1</div>
+        <div className="grid grid-cols-4 grid-tempolate-rows: repeat(15, minmax(1fr,1fr)) place-items-start">
+          <div className="bg-blue-300 w-full h-full">1</div>
           <div className="bg-pink-300 ">2</div>
           <div className="bg-blue-300 ">3</div>
           <div className="bg-pink-300 ">4</div>
