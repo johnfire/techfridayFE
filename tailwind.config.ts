@@ -10,7 +10,8 @@ const config: Config = {
     extend: {
       gridTemplateRows: {
         "13": "repeat(13,minmax(0,1fr))",
-        layout: "200px, 400px,200px,400px,200px,400px,200px, 400px,200px,400px,200px,400px,200px",
+        layout:
+          "100px,250px,100px,250px, 100px, 250px, 100px, 250px, 100px,250px,100px,250px,100px,250px,100px,250px,100px",
       },
     },
   },
