@@ -152,7 +152,6 @@ const MainDisplayPage = () => {
           <div className="bg-blue-300 w-full h-full flex justify-center items-center">3</div>
           <div className="bg-blue-300 w-full h-full flex justify-center items-center">3</div>
           <div className="bg-pink-300 w-full h-full flex justify-center items-center">4</div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">5</div>
           <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-blue-3008 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
