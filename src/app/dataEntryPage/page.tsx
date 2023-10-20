@@ -637,7 +637,7 @@ const DataEntryPage = () => {
               />
             </label>
             <label>
-              Mobile #:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Mobile #:&nbsp;&nbsp;&nbsp;
               <input
                 type="text"
                 name="mobil"
@@ -647,7 +647,7 @@ const DataEntryPage = () => {
               />
             </label>
             <label>
-              LinkedIn Link:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              LinkedIn Link:&nbsp;
               <input
                 type="text"
                 name="mobil"
