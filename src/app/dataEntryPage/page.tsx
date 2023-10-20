@@ -647,7 +647,7 @@ const DataEntryPage = () => {
               />
             </label>
             <label>
-              LinkedIn:&nbsp;&nbsp;&nbsp;&nbsp;
+              LinkedIn:&nbsp;&nbsp;&nbsp;
               <input
                 type="text"
                 name="mobil"
@@ -666,7 +666,7 @@ const DataEntryPage = () => {
             </div>
             <br />
             <label className="flex flex-row justify-start">
-              Bio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Bio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <textarea
                 name="Bio"
                 value={speakerBio}

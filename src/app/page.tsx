@@ -123,8 +123,10 @@ const MainDisplayPage = () => {
           <Header />
           <RoomHeader />
         </div>
-        <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2">
-          <RoomColumn
+        {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2"> */}
+        <div className="grid grid-cols-4 grid-tempolate-rows: repeat(15, minmax(0,1fr)) place-items-start">
+          <div className="bg-blue-300 ">hello</div>
+          {/* <RoomColumn
             list={townhall1talks}
             dataState={dataState}
           />
@@ -143,7 +145,7 @@ const MainDisplayPage = () => {
           <RoomColumn
             list={auzbiroom}
             dataState={dataState}
-          />
+          /> */}
         </div>
         <br />
         <br />
