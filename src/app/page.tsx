@@ -124,8 +124,7 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
 
-        {/* <div className="flex min-w-screen items-center justify-center"> */}
-        <div className="container w-full m-auto grid grid-cols-4 grid-rows-15 place-items-stretch justify-between gap-3">
+        {/* <div className="container w-full m-auto grid grid-cols-4 grid-rows-15 place-items-stretch justify-between gap-3">
           <div className="bg-blue-300 w-full h-full">1</div>
           <div className="bg-pink-300 w-full h-full">2</div>
           <div className="bg-blue-300 w-full h-full">3</div>
@@ -166,10 +165,9 @@ const MainDisplayPage = () => {
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
-        </div>
-        {/* </div> */}
-        {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2"> */}
-        {/* <RoomColumn
+        </div> */}
+        <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2">
+          <RoomColumn
             list={townhall1talks}
             dataState={dataState}
           />
@@ -188,8 +186,8 @@ const MainDisplayPage = () => {
           <RoomColumn
             list={auzbiroom}
             dataState={dataState}
-          /> */}
-
+          />
+        </div>
         <br />
         <br />
         <br />
