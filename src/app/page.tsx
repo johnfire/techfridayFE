@@ -7,6 +7,7 @@ import axios from "axios";
 import RoomHeader from "./components/roomHeader";
 import Header from "./components/header";
 import RoomColumn from "./components/roomColumn";
+import TalkComponent from "./components/talkComponent";
 import { talk } from "@/interfaces/interfaces";
 import { rooms, BASIS_URL } from "@/constants";
 
@@ -71,18 +72,18 @@ const MainDisplayPage = () => {
 
   if (dataState === false) return "loading";
 
-  townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
-  townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
-  blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
-  n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
-  auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
-  townhall1talks.sort(compareObjects);
-  townhall2talks.sort(compareObjects);
-  blauerAffe.sort(compareObjects);
-  n8schicht.sort(compareObjects);
-  auzbiroom.sort(compareObjects);
+  // townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
+  // townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
+  // blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
+  // n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
+  // auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
+  // townhall1talks.sort(compareObjects);
+  // townhall2talks.sort(compareObjects);
+  // blauerAffe.sort(compareObjects);
+  // n8schicht.sort(compareObjects);
+  // auzbiroom.sort(compareObjects);
 
-  console.log("here is right before the render");
+  // console.log("here is right before the render");
 
   // const setUpMeetingData = (meetingData: talk[]) => {
   townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
@@ -126,13 +127,32 @@ const MainDisplayPage = () => {
 
         <div className="container w-full m-auto grid grid-cols-4 grid-rows-layout place-items-stretch justify-between gap-3">
           <div className="bg-amber-600 col-span-4 flex justify-center items-center">
-            {" "}
-            introduction
+            Keynote und Begrüßung
+            <div>9:45 - 10:25</div>
           </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">2</div>
-          <div className="bg-blue-300 w-full h-full">3</div>
-          <div className="bg-pink-300 w-full h-full">4</div>
-          <div className="bg-blue-300 w-full h-full">5</div>
+          <div className="bg-red-500 col-span-4 flex justify-center items-center">
+            {" "}
+            5 minuten RaumWechsel
+          </div>
+
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            <TalkComponent
+              title={""}
+              speakerName={""}
+              speakerId={0}
+              language={""}
+              meetingLink={""}
+              startTime={""}
+              endTime={""}
+              description={""}
+              targetAudience={""}
+              room={""}
+            />
+          </div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">3</div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">3</div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">4</div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">5</div>
           <div className="bg-red-500 col-span-4 ">pause</div>
           <div className="bg-blue-300 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
