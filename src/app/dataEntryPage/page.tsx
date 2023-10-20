@@ -647,7 +647,7 @@ const DataEntryPage = () => {
               />
             </label>
             <label>
-              LinkedIn Link:&nbsp;
+              LinkedIn:&nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="text"
                 name="mobil"
