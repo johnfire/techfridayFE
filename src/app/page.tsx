@@ -92,7 +92,7 @@ const MainDisplayPage = () => {
         meetingLink={item.meetingLink}
         startTime={item.startTime}
         endTime={item.endTime}
-        description={item.description.substring(0, 240)}
+        description={item.description.substring(0, 150)}
         targetAudience={item.targetAudience}
         room={item.room}
       />
