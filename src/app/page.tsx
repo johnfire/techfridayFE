@@ -142,13 +142,12 @@ const MainDisplayPage = () => {
 
         <div className="container w-full m-auto grid grid-cols-4 grid-rows-layout place-items-stretch justify-between gap-3">
           <div className={GREETING_FORMAT}>
-            Keynote und Begrüßung
+            <div>Keynote und Begrüßung</div>
             <br />
             <div>9:45 - 10:25</div>
           </div>
           <div className={PAUSE_FORMAT}>
-            {" "}
-            5 Minuten Raumwechsel
+            <div>5 Minuten Raumwechsel</div>
             <br />
             <div>10:25 - 10:30</div>
           </div>
@@ -158,8 +157,7 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[0]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[0]}</div>
           <div className={PAUSE_FORMAT}>
-            {" "}
-            15 Minute Kaffeepause
+            <div>15 Minute Kaffeepause</div>
             <br />
             <div>11:30 - 11:45</div>
           </div>
@@ -168,7 +166,7 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[1]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[1]}</div>
           <div className={PAUSE_FORMAT}>
-            60 Minute Mittagspause
+            <div>60 Minute Mittagspause</div>
             <br />
             <div>12:30 - 13:30</div>
           </div>
@@ -177,7 +175,7 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[2]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[2]}</div>
           <div className={PAUSE_FORMAT}>
-            15 Minute Kaffeepause
+            <div>15 Minute Kaffeepause</div>
             <br />
             <div>14:15 -14:30</div>
           </div>
@@ -186,7 +184,7 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[3]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[3]}</div>
           <div className={PAUSE_FORMAT}>
-            15 Minute Kaffeepause
+            <div>15 Minute Kaffeepause</div>
             <br />
             <div>15:30 - 15:45</div>
           </div>
@@ -194,27 +192,13 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[4]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[4]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[4]}</div>
-          <div className={PAUSE_FORMAT}>
-            Verabschiedung
+          <div className={GREETING_FORMAT}>
+            <div>Verabschiedung</div>
             <br />
             <div>16:30 - 16:45</div>
           </div>
-          {/* <div className="bg-blue-300 w-full h-full">7</div>
-          <div className="bg-pink-300 w-full h-full">8</div>
-          <div className="bg-blue-300 w-full h-full">9</div>
-          <div className="bg-pink-300 w-full h-full">10</div>
-          <div className="bg-red-500 col-span-4 ">pause</div>
-          <div className="bg-pink-300 w-full h-full">2</div>
-          <div className="bg-blue-300 w-full h-full">3</div>
-          <div className="bg-pink-300 w-full h-full">4</div>
-          <div className="bg-blue-300 w-full h-full">5</div>
-          <div className="bg-red-500 col-span-4 ">pause</div>
-          <div className="bg-blue-300 w-full h-full">7</div>
-          <div className="bg-pink-300 w-full h-full">8</div>
-          <div className="bg-blue-300 w-full h-full">9</div>
-          <div className="bg-pink-300 w-full h-full">10</div> */}
           <div className={PAUSE_FORMAT}>
-            Winterfest!
+            <div>Winterfest!</div>
             <br />
             <div></div>
           </div>
