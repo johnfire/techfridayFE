@@ -108,6 +108,12 @@ const TalkComponent = ({
           <p> End:&nbsp; {endTime}</p>
         </div>
         <hr />
+        <div className=" bg-white flex flex-row justify-between ">
+          {talkSymbol}
+          <div>{language}</div>
+          {/* <div> {room}</div> */}
+        </div>
+        <hr />
         <div>Description:</div>
         <div>{description}</div>
         <hr />
@@ -117,11 +123,6 @@ const TalkComponent = ({
           </div>
         )}
         <hr />
-        <div className="flex flex-row justify-between ">
-          {talkSymbol}
-          <div>{language}</div>
-          <div> {room}</div>
-        </div>
       </div>
     </div>
   );
