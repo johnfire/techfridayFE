@@ -138,11 +138,13 @@ const MainDisplayPage = () => {
         <div className="container w-full m-auto grid grid-cols-4 grid-rows-layout place-items-stretch justify-between gap-3">
           <div className="bg-amber-600 col-span-4 flex justify-center items-center">
             Keynote und Begrüßung
+            <br />
             <div>9:45 - 10:25</div>
           </div>
           <div className="bg-red-500 col-span-4 flex justify-center items-center">
             {" "}
             5 Minuten Raumwechsel4
+            <br />
             <div>10:25 - 10:30</div>
           </div>
 
@@ -158,7 +160,12 @@ const MainDisplayPage = () => {
           <div className="bg-pink-300 w-full h-full flex justify-center items-center">
             {auzbiroomComp[0]}
           </div>
-          <div className="bg-red-500 col-span-4 "> 15 Minute Kaffeepause</div>
+          <div className="bg-red-500 col-span-4 ">
+            {" "}
+            15 Minute Kaffeepause
+            <br />
+            <div>11:30 - 11:45</div>
+          </div>
           <div className="bg-pink-300 w-full h-full flex justify-center items-center">
             {townhall1talksComp[1]}
           </div>
@@ -171,22 +178,54 @@ const MainDisplayPage = () => {
           <div className="bg-pink-300 w-full h-full flex justify-center items-center">
             {auzbiroomComp[1]}
           </div>
-          <div className="bg-red-500 col-span-4 ">60 Minute Mittagspause</div>
-          <div className="bg-pink-300 w-full h-full">2</div>
-          <div className="bg-blue-300 w-full h-full">3</div>
-          <div className="bg-pink-300 w-full h-full">4</div>
-          <div className="bg-blue-300 w-full h-full">5</div>
+          <div className="bg-red-500 col-span-4 ">
+            60 Minute Mittagspause
+            <br />
+            <div>12:30 - 13:30</div>
+          </div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            {townhall1talksComp[2]}
+          </div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            {blauerAffeComp[2]}
+          </div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            {n8schichtComp[2]}
+          </div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            {auzbiroomComp[2]}
+          </div>
           <div className="bg-red-500 col-span-4 ">15 Minute Kaffeepause</div>
-          <div className="bg-blue-300 w-full h-full">7</div>
-          <div className="bg-pink-300 w-full h-full">8</div>
-          <div className="bg-blue-300 w-full h-full">9</div>
-          <div className="bg-pink-300 w-full h-full">10</div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            {townhall1talksComp[3]}
+          </div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            {blauerAffeComp[3]}
+          </div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            {n8schichtComp[3]}
+          </div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            {auzbiroomComp[3]}
+          </div>
           <div className="bg-red-500 col-span-4 ">15 Minute Kaffeepause</div>
-          <div className="bg-pink-300 w-full h-full">2</div>
-          <div className="bg-blue-300 w-full h-full">3</div>
-          <div className="bg-pink-300 w-full h-full">4</div>
-          <div className="bg-blue-300 w-full h-full">5</div>
-          <div className="bg-red-500 col-span-4 ">pause</div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            {townhall1talksComp[4]}
+          </div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            {blauerAffeComp[4]}
+          </div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            {n8schichtComp[4]}
+          </div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            {auzbiroomComp[4]}
+          </div>
+          <div className="bg-red-500 col-span-4 ">
+            Verabschiedung
+            <br />
+            <div>16:30 - 16:45</div>
+          </div>
           <div className="bg-blue-300 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
@@ -201,7 +240,11 @@ const MainDisplayPage = () => {
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
-          <div className="bg-red-500 col-span-4 ">winterfeier</div>
+          <div className="bg-red-500 col-span-4 ">
+            Winterfest!
+            <br />
+            <div></div>
+          </div>
         </div>
         {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2">
           <RoomColumn
