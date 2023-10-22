@@ -6,7 +6,7 @@ import axios from "axios";
 
 import RoomHeader from "./components/roomHeader";
 import Header from "./components/header";
-// mport RoomColumn from "./components/roomColumn";
+// import RoomColumn from "./components/roomColumn";
 import TalkComponent from "./components/talkComponent";
 import { talk } from "@/interfaces/interfaces";
 import { rooms, BASIS_URL } from "@/constants";
@@ -19,7 +19,7 @@ const TEXT_BOLD: string = "text-lg font-semibold";
 const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 const GREETING_FORMAT: string =
-  "bg-amber-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
+  "bg-amber-700 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
 const PAUSE_FORMAT: string =
   "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
 
@@ -142,12 +142,10 @@ const MainDisplayPage = () => {
         <div className="container w-full m-auto grid grid-cols-4 grid-rows-layout place-items-stretch justify-between gap-3">
           <div className={GREETING_FORMAT}>
             <div>Keynote und Begrüßung</div>
-            <br />
             <div>9:45 - 10:25</div>
           </div>
           <div className={PAUSE_FORMAT}>
             <div>5 Minuten Raumwechsel</div>
-            <br />
             <div>10:25 - 10:30</div>
           </div>
 
@@ -157,7 +155,6 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[0]}</div>
           <div className={PAUSE_FORMAT}>
             <div>15 Minute Kaffeepause</div>
-            <br />
             <div>11:30 - 11:45</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[1]}</div>
@@ -166,7 +163,6 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[1]}</div>
           <div className={PAUSE_FORMAT}>
             <div>60 Minute Mittagspause</div>
-            <br />
             <div>12:30 - 13:30</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[2]}</div>
@@ -175,7 +171,6 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[2]}</div>
           <div className={PAUSE_FORMAT}>
             <div>15 Minute Kaffeepause</div>
-            <br />
             <div>14:15 -14:30</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[3]}</div>
@@ -184,7 +179,6 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[3]}</div>
           <div className={PAUSE_FORMAT}>
             <div>15 Minute Kaffeepause</div>
-            <br />
             <div>15:30 - 15:45</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[4]}</div>
@@ -193,12 +187,10 @@ const MainDisplayPage = () => {
           <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[4]}</div>
           <div className={GREETING_FORMAT}>
             <div>Verabschiedung</div>
-            <br />
             <div>16:30 - 16:45</div>
           </div>
           <div className={PAUSE_FORMAT}>
             <div>Winterfest!</div>
-            <br />
             <div></div>
           </div>
         </div>
