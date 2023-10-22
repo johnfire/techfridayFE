@@ -27,7 +27,6 @@ export interface Attendee {
   firstName: string;
   lastName: string;
   email: string;
-
   bio?: string;
   company: string;
   telephone?: string;

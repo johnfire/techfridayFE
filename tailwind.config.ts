@@ -11,7 +11,7 @@ const config: Config = {
       gridTemplateRows: {
         "13": "repeat(13,minmax(0,1fr))",
         layout:
-          "150px, 100px, 250px, 100px, 250px, 100px, 250px, 100px, 250px, 100px, 250px, 100px, 100px",
+          "100px, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 100px",
       },
     },
   },

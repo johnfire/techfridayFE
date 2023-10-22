@@ -10,11 +10,11 @@ import { talk, speaker } from "@/interfaces/interfaces";
 // does not work in production for tailwind
 import { rooms, languages, targetAudiences, BASIS_URL } from "@/constants";
 
-const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
-const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white w-full";
-const TEXT_BOLD = "text-lg font-semibold";
-const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
-const MEDIUM_BORDER = "border-4 border-black border-solid";
+const BUTTON_STYLE: string = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white w-full";
+const TEXT_BOLD: string = "text-lg font-semibold";
+const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
+const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 
 const DataEntryPage = () => {
   const [title, setTitle] = useState<string>("");
@@ -61,14 +61,13 @@ const DataEntryPage = () => {
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllSpeakers`)
       .then((response1) => {
-        console.log("here is the response we got ", response1);
         let speakerData: speaker[] = [];
         for (let i = 0; i < response1.data.length; i++) {
           speakerData.push(response1.data[i]);
         }
         setSpeakerData(speakerData);
         setHaveSpeakerData(true);
-        const speakerNames = speakerData.map((speaker) => speaker.speaker);
+        const speakerNames: string[] = speakerData.map((speaker) => speaker.speaker);
         setSpeakerChoices(speakerNames);
       })
       .catch((error) => {});
@@ -264,8 +263,6 @@ const DataEntryPage = () => {
     axios
       .post(`${BASIS_URL}/techfridayAPI/saveOneSpeaker/`, payload)
       .then(function (response) {
-        console.log(" SPEAKER here is what we got", response);
-
         if (response.status === 201) {
           console.log("SPEAKERpinged API successfully");
           //push("/");
@@ -291,7 +288,6 @@ const DataEntryPage = () => {
   const handleSubmitEditSpeaker = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    console.log("need to save to db");
     const payload = {
       id: speakerId,
       speakerName: speakerName,
@@ -304,8 +300,6 @@ const DataEntryPage = () => {
     axios
       .post(`${BASIS_URL}/techfridayAPI/editOneSpeaker/`, payload)
       .then(function (response) {
-        console.log("here is what we got", response);
-
         if (response.status === 201) {
           console.log("pinged API successfully");
           //push("/");
@@ -341,8 +335,6 @@ const DataEntryPage = () => {
     axios
       .post(`${BASIS_URL}/techfridayAPI/deleteOneSpeaker/`, payload)
       .then(function (response) {
-        console.log("here is what we got", response);
-
         if (response.status === 201) {
           console.log("pinged API successfully");
           //push("/");
