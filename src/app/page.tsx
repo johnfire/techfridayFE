@@ -92,12 +92,14 @@ const MainDisplayPage = () => {
         meetingLink={item.meetingLink}
         startTime={item.startTime}
         endTime={item.endTime}
-        description={item.description.substring(0, 320)}
+        description={item.description.substring(0, 240)}
         targetAudience={item.targetAudience}
         room={item.room}
       />
     );
   };
+
+  // this is not updating right
 
   const townhall1talksComp: ReactNode[] = townhall1talks.map((item) =>
     createDisplayComponent(item)
@@ -131,7 +133,7 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
 
-        <div className="container w-full grid grid-cols-4 grid-rows-layout place-items-stretch justify-between gap-3">
+        <div className="container grid grid-cols-4 grid-rows-layout w-full place-items-stretch justify-between gap-3">
           <div className={GREETING_FORMAT}>
             <div>Keynote und Begrüßung</div>
             <div>9:45 - 10:25</div>
