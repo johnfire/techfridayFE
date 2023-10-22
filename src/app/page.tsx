@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactComponentElement, DOMElement, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -72,20 +72,6 @@ const MainDisplayPage = () => {
 
   if (dataState === false) return "loading";
 
-  // townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
-  // townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
-  // blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
-  // n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
-  // auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
-  // townhall1talks.sort(compareObjects);
-  // townhall2talks.sort(compareObjects);
-  // blauerAffe.sort(compareObjects);
-  // n8schicht.sort(compareObjects);
-  // auzbiroom.sort(compareObjects);
-
-  // console.log("here is right before the render");
-
-  // const setUpMeetingData = (meetingData: talk[]) => {
   townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
   townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
   blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
@@ -96,9 +82,33 @@ const MainDisplayPage = () => {
   blauerAffe.sort(compareObjects);
   n8schicht.sort(compareObjects);
   auzbiroom.sort(compareObjects);
-  // };
 
-  // setUpMeetingData(meetingData);
+  const createDisplayComponent = (item: any) => {
+    return (
+      <TalkComponent
+        title={item.title}
+        speakerName={item.speakerName}
+        speakerId={item.speakerId}
+        language={item.language}
+        meetingLink={item.meetingLink}
+        startTime={item.startTime}
+        endTime={item.endTime}
+        description={item.description}
+        targetAudience={item.targetAudience}
+        room={item.room}
+      />
+    );
+  };
+
+  const townhall1talksComp: ReactNode[] = townhall1talks.map((item) =>
+    createDisplayComponent(item)
+  );
+  const townhall2talksComp: ReactNode[] = townhall2talks.map((item) =>
+    createDisplayComponent(item)
+  );
+  const blauerAffeComp: ReactNode[] = blauerAffe.map((item) => createDisplayComponent(item));
+  const n8schichtComp: ReactNode[] = n8schicht.map((item) => createDisplayComponent(item));
+  const auzbiroomComp: ReactNode[] = auzbiroom.map((item) => createDisplayComponent(item));
 
   if (dataState === true) {
     return (
@@ -135,25 +145,20 @@ const MainDisplayPage = () => {
             5 minuten RaumWechsel
           </div>
 
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            <TalkComponent
-              title={townhall1talks[0].title}
-              speakerName={townhall1talks[0].speakerName}
-              speakerId={townhall1talks[0].speakerId}
-              language={townhall1talks[0].language}
-              meetingLink={townhall1talks[0].meetingLink}
-              startTime={townhall1talks[0].startTime}
-              endTime={townhall1talks[0].endTime}
-              description={townhall1talks[0].description}
-              targetAudience={townhall1talks[0].targetAudience}
-              room={townhall1talks[0].room}
-            />
+          {/* <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            townhall2talks[0]
+          </div> */}
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            blauerAffeComp[0]
           </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">3</div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">3</div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">4</div>
+          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
+            n8schichtComp[0]
+          </div>
+          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
+            auzbiroomComp[0]
+          </div>
           <div className="bg-red-500 col-span-4 ">pause</div>
-          <div className="bg-blue-3008 w-full h-full">7</div>
+          <div className="bg-blue-300 w-full h-full">7</div>
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
