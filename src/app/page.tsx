@@ -81,6 +81,7 @@ const MainDisplayPage = () => {
   townhall1talks.sort(compareObjects);
   blauerAffe.sort(compareObjects);
   raum123.sort(compareObjects);
+  n8schicht.sort(compareObjects);
 
   const createDisplayComponent = (item: talk) => {
     return (
