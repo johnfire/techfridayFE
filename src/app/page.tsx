@@ -52,12 +52,10 @@ const MainDisplayPage = () => {
     },
   ]);
 
-  // console.log("here is the url stuff", `${BASIS_URL}/techfridayAPI/getAllTalks/`);
   let townhall1talks: talk[] = [];
-  let townhall2talks: talk[] = [];
-  let blauerAffe: talk[] = [];
+  let raum123: talk[] = [];
   let n8schicht: talk[] = [];
-  let auzbiroom: talk[] = [];
+  let blauerAffe: talk[] = [];
 
   useEffect(() => {
     axios
@@ -77,15 +75,12 @@ const MainDisplayPage = () => {
   if (dataState === false) return "loading";
 
   townhall1talks = meetingData.filter((talk: talk) => talk.room === rooms[0]);
-  townhall2talks = meetingData.filter((talk: talk) => talk.room === rooms[1]);
-  blauerAffe = meetingData.filter((talk: talk) => talk.room === rooms[2]);
-  n8schicht = meetingData.filter((talk: talk) => talk.room === rooms[3]);
-  auzbiroom = meetingData.filter((talk: talk) => talk.room === rooms[4]);
+  blauerAffe = meetingData.filter((talk: talk) => talk.room === rooms[1]);
+  n8schicht = meetingData.filter((talk: talk) => talk.room === rooms[2]);
+  raum123 = meetingData.filter((talk: talk) => talk.room === rooms[3]);
   townhall1talks.sort(compareObjects);
-  townhall2talks.sort(compareObjects);
   blauerAffe.sort(compareObjects);
-  n8schicht.sort(compareObjects);
-  auzbiroom.sort(compareObjects);
+  raum123.sort(compareObjects);
 
   const createDisplayComponent = (item: talk) => {
     return (
@@ -107,12 +102,9 @@ const MainDisplayPage = () => {
   const townhall1talksComp: ReactNode[] = townhall1talks.map((item) =>
     createDisplayComponent(item)
   );
-  const townhall2talksComp: ReactNode[] = townhall2talks.map((item) =>
-    createDisplayComponent(item)
-  );
   const blauerAffeComp: ReactNode[] = blauerAffe.map((item) => createDisplayComponent(item));
   const n8schichtComp: ReactNode[] = n8schicht.map((item) => createDisplayComponent(item));
-  const auzbiroomComp: ReactNode[] = auzbiroom.map((item) => createDisplayComponent(item));
+  const raum123Comp: ReactNode[] = raum123.map((item) => createDisplayComponent(item));
 
   if (dataState === true) {
     return (
@@ -150,41 +142,42 @@ const MainDisplayPage = () => {
           </div>
 
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[0]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[0]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{raum123Comp[0]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[0]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[0]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[0]}</div>
           <div className={PAUSE_FORMAT}>
             <div>15 Minute Kaffeepause</div>
             <div>11:30 - 11:45</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[1]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[1]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{raum123Comp[1]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[1]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[1]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[1]}</div>
           <div className={PAUSE_FORMAT}>
             <div>60 Minute Mittagspause</div>
             <div>12:30 - 13:30</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[2]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[2]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{raum123Comp[2]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[2]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[2]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[2]}</div>
           <div className={PAUSE_FORMAT}>
             <div>15 Minute Kaffeepause</div>
             <div>14:15 -14:30</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[3]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[3]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{raum123Comp[3]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[3]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[3]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[3]}</div>
           <div className={PAUSE_FORMAT}>
             <div>15 Minute Kaffeepause</div>
             <div>15:30 - 15:45</div>
           </div>
           <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[4]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[4]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{raum123Comp[4]}</div>
           <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[4]}</div>
-          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[4]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[4]}</div>
+
           <div className={GREETING_FORMAT}>
             <div>Verabschiedung</div>
             <div>16:30 - 16:45</div>
@@ -194,39 +187,17 @@ const MainDisplayPage = () => {
             <div></div>
           </div>
         </div>
-        {/* <div className="flex flex-row w-full items-start justify-between font-mono text-sm gap-2">
-          <RoomColumn
-            list={townhall1talks}
-            dataState={dataState}
-          />
-          <RoomColumn
-            list={townhall2talks}
-            dataState={dataState}
-          />
-          <RoomColumn
-            list={blauerAffe}
-            dataState={dataState}
-          />
-          <RoomColumn
-            list={n8schicht}
-            dataState={dataState}
-          />
-          <RoomColumn
-            list={auzbiroom}
-            dataState={dataState}
-          />
-        </div> */}
         <br />
         <br />
         <br />
         <br />
 
-        <Link
+        {/* <Link
           href="/passPage"
           className={BUTTON_STYLE}
         >
           Link to data entry
-        </Link>
+        </Link> */}
       </main>
     );
   }

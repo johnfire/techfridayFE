@@ -1,10 +1,4 @@
-export const rooms: string[] = [
-  "Townhall 1",
-  "Townhall 2",
-  "Blauer Affe",
-  "N8schicht",
-  "Auzbi-Raum",
-];
+export const rooms: string[] = ["Townhall 1", "Raum 123", "N8schicht", "Blauer Affe"];
 export const languages: string[] = ["English", "Deutsch"];
 
 export const targetAudiences: string[] = [
