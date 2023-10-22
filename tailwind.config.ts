@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+const TALK_SIZE = "400px";
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,8 +12,8 @@ const config: Config = {
     extend: {
       gridTemplateRows: {
         "13": "repeat(13,minmax(0,1fr))",
-        layout:
-          "100px, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 100px",
+        layout: `100px, 80px, ${TALK_SIZE}, 80px, ${TALK_SIZE}, 80px, ${TALK_SIZE}, 80px, ${TALK_SIZE}, 80px, ${TALK_SIZE} 80px, 100px`,
+        // `100px, 80px, ${TALK_SIZE}, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 250px, 80px, 100px`,
       },
     },
   },
