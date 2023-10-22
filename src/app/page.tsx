@@ -6,26 +6,24 @@ import axios from "axios";
 
 import RoomHeader from "./components/roomHeader";
 import Header from "./components/header";
-import RoomColumn from "./components/roomColumn";
+// mport RoomColumn from "./components/roomColumn";
 import TalkComponent from "./components/talkComponent";
 import { talk } from "@/interfaces/interfaces";
 import { rooms, BASIS_URL } from "@/constants";
 
 const TARENT_SYMBOL_SIZE: number = 200;
 
-const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
-const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
-const TEXT_BOLD = "text-lg font-semibold";
-const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
-const MEDIUM_BORDER = "border-4 border-black border-solid";
-const GREETING_FORMAT =
-  "bg-amber-600 col-span-4 flex-col justify-center items-center font-semibold";
-const PAUSE_FORMAT =
+const BUTTON_STYLE: string = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white";
+const TEXT_BOLD: string = "text-lg font-semibold";
+const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
+const MEDIUM_BORDER: string = "border-4 border-black border-solid";
+const GREETING_FORMAT: string =
+  "bg-amber-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
+const PAUSE_FORMAT: string =
   "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
 
-const TALK_COMPONENT_FORMAT = "bg-pink-300 w-full h-full flex justify-center items-center";
-
-// trying to find the problem here ..
+const TALK_COMPONENT_FORMAT: string = "bg-pink-300 w-full h-full flex justify-center items-center";
 
 function compareObjects(a: talk, b: talk) {
   if (a.startTime < b.startTime) {
@@ -78,18 +76,18 @@ const MainDisplayPage = () => {
 
   if (dataState === false) return "loading";
 
-  townhall1talks = meetingData.filter((talk) => talk.room === rooms[0]);
-  townhall2talks = meetingData.filter((talk) => talk.room === rooms[1]);
-  blauerAffe = meetingData.filter((talk) => talk.room === rooms[2]);
-  n8schicht = meetingData.filter((talk) => talk.room === rooms[3]);
-  auzbiroom = meetingData.filter((talk) => talk.room === rooms[4]);
+  townhall1talks = meetingData.filter((talk: talk) => talk.room === rooms[0]);
+  townhall2talks = meetingData.filter((talk: talk) => talk.room === rooms[1]);
+  blauerAffe = meetingData.filter((talk: talk) => talk.room === rooms[2]);
+  n8schicht = meetingData.filter((talk: talk) => talk.room === rooms[3]);
+  auzbiroom = meetingData.filter((talk: talk) => talk.room === rooms[4]);
   townhall1talks.sort(compareObjects);
   townhall2talks.sort(compareObjects);
   blauerAffe.sort(compareObjects);
   n8schicht.sort(compareObjects);
   auzbiroom.sort(compareObjects);
 
-  const createDisplayComponent = (item: any) => {
+  const createDisplayComponent = (item: talk) => {
     return (
       <TalkComponent
         title={item.title}
