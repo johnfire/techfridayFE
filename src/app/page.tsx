@@ -18,6 +18,8 @@ const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
 const TEXT_BOLD = "text-lg font-semibold";
 const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER = "border-4 border-black border-solid";
+const PAUSE_FORMAT = "bg-amber-600 col-span-4 flex justify-center items-center";
+const TALK_COMPONENT_FORMAT = "bg-pink-300 w-full h-full flex justify-center items-center";
 
 // trying to find the problem here ..
 
@@ -136,92 +138,60 @@ const MainDisplayPage = () => {
         </div>
 
         <div className="container w-full m-auto grid grid-cols-4 grid-rows-layout place-items-stretch justify-between gap-3">
-          <div className="bg-amber-600 col-span-4 flex justify-center items-center">
+          <div className={PAUSE_FORMAT}>
             Keynote und Begrüßung
             <br />
             <div>9:45 - 10:25</div>
           </div>
-          <div className="bg-red-500 col-span-4 flex justify-center items-center">
+          <div className={PAUSE_FORMAT}>
             {" "}
-            5 Minuten Raumwechsel4
+            5 Minuten Raumwechsel
             <br />
             <div>10:25 - 10:30</div>
           </div>
 
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {townhall1talksComp[0]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {blauerAffeComp[0]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {n8schichtComp[0]}
-          </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {auzbiroomComp[0]}
-          </div>
-          <div className="bg-red-500 col-span-4 ">
+          <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[0]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[0]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[0]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[0]}</div>
+          <div className={PAUSE_FORMAT}>
             {" "}
             15 Minute Kaffeepause
             <br />
             <div>11:30 - 11:45</div>
           </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {townhall1talksComp[1]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {blauerAffeComp[1]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {n8schichtComp[1]}
-          </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {auzbiroomComp[1]}
-          </div>
-          <div className="bg-red-500 col-span-4 ">
+          <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[1]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[1]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[1]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[1]}</div>
+          <div className={PAUSE_FORMAT}>
             60 Minute Mittagspause
             <br />
             <div>12:30 - 13:30</div>
           </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {townhall1talksComp[2]}
+          <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[2]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[2]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[2]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[2]}</div>
+          <div className={PAUSE_FORMAT}>
+            15 Minute Kaffeepause
+            <br />
+            <div>14:15 -14:30</div>
           </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {blauerAffeComp[2]}
+          <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[3]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[3]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[3]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[3]}</div>
+          <div className={PAUSE_FORMAT}>
+            15 Minute Kaffeepause
+            <br />
+            <div>15:30 - 15:45</div>
           </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {n8schichtComp[2]}
-          </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {auzbiroomComp[2]}
-          </div>
-          <div className="bg-red-500 col-span-4 ">15 Minute Kaffeepause</div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {townhall1talksComp[3]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {blauerAffeComp[3]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {n8schichtComp[3]}
-          </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {auzbiroomComp[3]}
-          </div>
-          <div className="bg-red-500 col-span-4 ">15 Minute Kaffeepause</div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {townhall1talksComp[4]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {blauerAffeComp[4]}
-          </div>
-          <div className="bg-blue-300 w-full h-full flex justify-center items-center">
-            {n8schichtComp[4]}
-          </div>
-          <div className="bg-pink-300 w-full h-full flex justify-center items-center">
-            {auzbiroomComp[4]}
-          </div>
-          <div className="bg-red-500 col-span-4 ">
+          <div className={TALK_COMPONENT_FORMAT}>{townhall1talksComp[4]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{blauerAffeComp[4]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{n8schichtComp[4]}</div>
+          <div className={TALK_COMPONENT_FORMAT}>{auzbiroomComp[4]}</div>
+          <div className={PAUSE_FORMAT}>
             Verabschiedung
             <br />
             <div>16:30 - 16:45</div>
@@ -240,7 +210,7 @@ const MainDisplayPage = () => {
           <div className="bg-pink-300 w-full h-full">8</div>
           <div className="bg-blue-300 w-full h-full">9</div>
           <div className="bg-pink-300 w-full h-full">10</div>
-          <div className="bg-red-500 col-span-4 ">
+          <div className={PAUSE_FORMAT}>
             Winterfest!
             <br />
             <div></div>
