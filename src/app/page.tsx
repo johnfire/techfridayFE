@@ -18,9 +18,10 @@ const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
 const TEXT_BOLD = "text-lg font-semibold";
 const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER = "border-4 border-black border-solid";
-const GREETING_FORMAT = "bg-amber-600 col-span-4 flex justify-center items-center font-semibold";
+const GREETING_FORMAT =
+  "bg-amber-600 col-span-4 flex-col justify-center items-center font-semibold";
 const PAUSE_FORMAT =
-  "bg-red-600 col-span-4 flex justify-center items-center font-semibold text-white";
+  "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
 
 const TALK_COMPONENT_FORMAT = "bg-pink-300 w-full h-full flex justify-center items-center";
 
