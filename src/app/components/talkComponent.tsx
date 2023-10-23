@@ -121,7 +121,7 @@ const TalkComponent = ({
         {/* <div>Meeting link:</div> */}
         {meetingLink && (
           <div className={BUTTON_STYLE_TIGHT}>
-            <a href={workingLink}>Meeting link:{meetingLink}</a>
+            <a href={workingLink}>Meeting link: &nbsp;{meetingLink}</a>
           </div>
         )}
         <hr />
