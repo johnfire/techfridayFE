@@ -21,8 +21,8 @@ const DataEntryPage = () => {
   const [speaker, setSpeaker] = useState<string>("");
   const [language, setLanguage] = useState<string>("");
   const [meetingLink, setMeetingLink] = useState<string>("");
-  const [startTime, setStartTime] = useState<string>("10:00");
-  const [endTime, setEndTime] = useState<string>("11:00");
+  const [startTime, setStartTime] = useState<string>("");
+  const [endTime, setEndTime] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [targetAudience, setTargetAudience] = useState<string>("");
   const [room, setRoom] = useState<string>("");
@@ -114,12 +114,12 @@ const DataEntryPage = () => {
     event.preventDefault();
     const payload = {
       Title: title,
-      Speaker: speaker,
-      Language: language,
       MeetingLink: meetingLink,
       StartTime: startTime,
       EndTime: endTime,
       Description: description,
+      Speaker: speaker,
+      Language: language,
       TargetAudience: targetAudience,
       Room: room,
     };
@@ -155,13 +155,14 @@ const DataEntryPage = () => {
 
     const payload = {
       Title: title,
-      Speaker: speaker,
-      Language: language,
       MeetingLink: meetingLink,
       StartTime: startTime,
       EndTime: endTime,
       Description: description,
+      Speaker: speaker,
+      Language: language,
       TargetAudience: targetAudience,
+      Room: room,
     };
 
     axios
