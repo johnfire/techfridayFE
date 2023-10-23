@@ -86,7 +86,7 @@ const TalkComponent = ({
   };
   return (
     <div
-      className="bg-white rounded-md flex justify-center items-center m-2 border-2 border-black border-solid oveflow-auto"
+      className="bg-white rounded-md justify-self-stretch self-stretch flex justify-center items-center m-2 border-2 border-black border-solid oveflow-auto"
       style={{
         marginBottom: "4px",
         padding: "5px",
