@@ -118,9 +118,10 @@ const TalkComponent = ({
         <div>Description:</div>
         <div className="text-justify ">{description}</div>
         <hr />
+        {/* <div>Meeting link:</div> */}
         {meetingLink && (
           <div className={BUTTON_STYLE_TIGHT}>
-            <a href={workingLink}>{meetingLink}</a>
+            <a href={workingLink}>Meeting link:{meetingLink}</a>
           </div>
         )}
         <hr />
