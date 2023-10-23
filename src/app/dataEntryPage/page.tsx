@@ -166,6 +166,7 @@ const DataEntryPage = () => {
       TargetAudience: targetAudience,
       Room: room,
     };
+    console.log("outgoing playload", payload);
 
     axios
       .post(`${BASIS_URL}/techfridayAPI/editOneTalk/`, payload)
@@ -439,8 +440,6 @@ const DataEntryPage = () => {
   const speakerTalksDisplay = Array.from(speakerTalks).map((talk: any) => (
     <div key={talk.thisSpeaker}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{talk.title}</div>
   ));
-
-  console.log(meetingData);
 
   return (
     <main className="flex flex-col min-h-screen w-full justify-between gap-5 ">
