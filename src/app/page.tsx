@@ -19,11 +19,12 @@ const TEXT_BOLD: string = "text-lg font-semibold";
 const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 const GREETING_FORMAT: string =
-  "bg-amber-700 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
+  "bg-amber-700 col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
 const PAUSE_FORMAT: string =
-  "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
+  "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
 
-const TALK_COMPONENT_FORMAT: string = "bg-amber-200 w-full h-full content-center";
+const TALK_COMPONENT_FORMAT: string =
+  "bg-amber-200 w-full h-full content-center border-2 border-black border-solid";
 
 function compareObjects(a: talk, b: talk) {
   if (a.startTime < b.startTime) {
