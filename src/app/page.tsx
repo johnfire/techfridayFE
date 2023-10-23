@@ -76,9 +76,9 @@ const MainDisplayPage = () => {
   if (dataState === false) return "loading";
 
   townhall1talks = meetingData.filter((talk: talk) => talk.room === rooms[0]);
-  blauerAffe = meetingData.filter((talk: talk) => talk.room === rooms[1]);
+  raum123 = meetingData.filter((talk: talk) => talk.room === rooms[1]);
   n8schicht = meetingData.filter((talk: talk) => talk.room === rooms[2]);
-  raum123 = meetingData.filter((talk: talk) => talk.room === rooms[3]);
+  blauerAffe = meetingData.filter((talk: talk) => talk.room === rooms[3]);
   townhall1talks.sort(compareObjects);
   blauerAffe.sort(compareObjects);
   raum123.sort(compareObjects);
