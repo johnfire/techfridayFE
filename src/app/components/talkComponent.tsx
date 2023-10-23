@@ -11,7 +11,7 @@ import axios from "axios";
 
 const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
 const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white w-full";
-const TEXT_BOLD = " w-full h-32 text-lg font-semibold text-center";
+const TEXT_BOLD = " w-full h-20 text-lg font-semibold text-center";
 const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER = "border-4 border-black border-solid";
 
@@ -86,13 +86,13 @@ const TalkComponent = ({
   };
   return (
     <div
-      className="bg-white rounded-md flex justify-center items-center m-2 border-2 border-black border-solid "
+      className="bg-white rounded-md h-96 flex flex-col justify-start m-2 border-2 border-black border-solid overflow-y-auto"
       style={{
         marginBottom: "4px",
         padding: "5px",
       }}
     >
-      <div className="flex flex-col justify-between ">
+      <div className="flex flex-col justify-between">
         <div className={TEXT_BOLD}> {title}</div>
         <div>
           <button
@@ -104,12 +104,12 @@ const TalkComponent = ({
           </button>
         </div>
         <hr />
-        <div className="flex flex-row justify-between ">
+        <div className="flex flex-row justify-between">
           <p> Start:&nbsp; {startTime}</p>
           <p> End:&nbsp; {endTime}</p>
         </div>
         <hr />
-        <div className=" bg-white flex flex-row justify-between ">
+        <div className="flex flex-row justify-between">
           {talkSymbol}
           <div>{language}</div>
           {/* <div> {room}</div> */}
