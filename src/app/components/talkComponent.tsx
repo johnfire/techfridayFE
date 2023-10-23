@@ -85,7 +85,7 @@ const TalkComponent = ({
   };
   return (
     <div
-      className="bg-amber-200 rounded-md w-full h-full flex justify-center items-center"
+      className="bg-white rounded-md w-11/12 h-11/12 flex justify-center items-center"
       style={{
         marginBottom: "4px",
         padding: "5px",

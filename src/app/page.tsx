@@ -23,7 +23,7 @@ const GREETING_FORMAT: string =
 const PAUSE_FORMAT: string =
   "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white";
 
-const TALK_COMPONENT_FORMAT: string = " w-full h-full  justify-center items-center";
+const TALK_COMPONENT_FORMAT: string = "bg-amber-200 w-full h-full  justify-center items-center";
 
 function compareObjects(a: talk, b: talk) {
   if (a.startTime < b.startTime) {
