@@ -19,6 +19,7 @@ const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 const DataEntryPage = () => {
   const [title, setTitle] = useState<string>("");
   const [speaker, setSpeaker] = useState<string>("");
+  const [meetingSpeakerId, setMeetingSpeakerId] = useState<number>(0);
   const [language, setLanguage] = useState<string>("");
   const [meetingLink, setMeetingLink] = useState<string>("");
   const [startTime, setStartTime] = useState<string>("");
@@ -160,6 +161,7 @@ const DataEntryPage = () => {
       EndTime: endTime,
       Description: description,
       Speaker: speaker,
+      MeetingSpeakerId: meetingSpeakerId,
       Language: language,
       TargetAudience: targetAudience,
       Room: room,
@@ -176,6 +178,7 @@ const DataEntryPage = () => {
         }
         setTitle("");
         setSpeaker("");
+        setMeetingSpeakerId(0);
         setLanguage("");
         setMeetingLink("");
         setStartTime("");
@@ -365,6 +368,7 @@ const DataEntryPage = () => {
     if (thisMeeting?.length === 1) {
       setTitle(thisMeeting[0].title);
       setSpeaker(thisMeeting[0].speakerName);
+      setMeetingSpeakerId(thisMeeting[0].speakerId);
       setLanguage(thisMeeting[0].language);
       setMeetingLink(thisMeeting[0].meetingLink);
       setStartTime(thisMeeting[0].startTime);
@@ -435,6 +439,8 @@ const DataEntryPage = () => {
   const speakerTalksDisplay = Array.from(speakerTalks).map((talk: any) => (
     <div key={talk.thisSpeaker}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{talk.title}</div>
   ));
+
+  console.log(meetingData);
 
   return (
     <main className="flex flex-col min-h-screen w-full justify-between gap-5 ">
