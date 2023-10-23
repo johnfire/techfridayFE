@@ -28,6 +28,18 @@ const TalkComponent = ({
   room,
 }: talk) => {
   let talkSymbol: any = "*";
+  // let displayTitle: string = title || "";
+
+  const spacesNeeded: number = 140 - title.length;
+
+  function spaces(x: number) {
+    var res = "";
+    while (x--) res += " ";
+    return res;
+  }
+
+  const displayTitle = title + spaces(spacesNeeded);
+
   if (targetAudience === targetAudiences[0])
     talkSymbol = (
       <Image
@@ -92,7 +104,7 @@ const TalkComponent = ({
       }}
     >
       <div className="flex flex-col justify-between ">
-        <div className={TEXT_BOLD}> {title}</div>
+        <div className={TEXT_BOLD}> {displayTitle}</div>
         <div>
           <button
             onClick={handleSpeakerButtonPress}
