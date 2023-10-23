@@ -134,7 +134,7 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
 
-        <div className="container grid grid-cols-4 grid-rows-layout w-full place-items-stretch justify-between gap-3">
+        <div className="grid grid-cols-4 grid-rows-layout w-full place-items-stretch justify-between gap-3">
           <div className={GREETING_FORMAT}>
             <div>Keynote und Begrüßung</div>
             <div>9:45 - 10:25</div>

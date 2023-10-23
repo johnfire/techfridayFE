@@ -11,7 +11,7 @@ import axios from "axios";
 
 const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
 const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white w-full";
-const TEXT_BOLD = " w-full h-40 text-lg font-semibold";
+const TEXT_BOLD = " w-full h-36 text-lg font-semibold";
 const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER = "border-4 border-black border-solid";
 
@@ -30,25 +30,25 @@ const TalkComponent = ({
   let talkSymbol: any = "*";
   // let displayTitle: string = title || "";
 
-  const spacesNeeded: number = 140 - title.length;
+  // const spacesNeeded: number = 140 - title.length;
 
-  function spaces(x: number) {
-    var res = "";
-    while (x--) res += " ";
-    return res;
-  }
+  // function spaces(x: number) {
+  //   var res = "";
+  //   while (x--) res += " ";
+  //   return res;
+  // }
 
-  // const displayTitle = title + " ".repeat(spacesNeeded);
+  // // const displayTitle = title + " ".repeat(spacesNeeded);
 
-  function addSpace(displayTitle: string, maxLength: number) {
-    return displayTitle.length >= maxLength
-      ? displayTitle
-      : displayTitle + " ".repeat(maxLength - displayTitle.length);
-  }
+  // function addSpace(displayTitle: string, maxLength: number) {
+  //   return displayTitle.length >= maxLength
+  //     ? displayTitle
+  //     : displayTitle + " ".repeat(maxLength - displayTitle.length);
+  // }
 
-  const displayTitle = addSpace(title, 140);
+  // const displayTitle = addSpace(title, 140);
 
-  console.log("length is ", displayTitle.length);
+  // console.log("length is ", displayTitle.length);
 
   if (targetAudience === targetAudiences[0])
     talkSymbol = (
@@ -114,7 +114,7 @@ const TalkComponent = ({
       }}
     >
       <div className="flex flex-col justify-between ">
-        <div className={TEXT_BOLD}> {displayTitle}</div>
+        <div className={TEXT_BOLD}> {title}</div>
         <div>
           <button
             onClick={handleSpeakerButtonPress}
