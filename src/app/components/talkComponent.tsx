@@ -116,7 +116,7 @@ const TalkComponent = ({
         </div>
         <hr />
         <div>Description:</div>
-        <div className="overflow-auto">{description}</div>
+        <div className="text-justify ">{description}</div>
         <hr />
         {meetingLink && (
           <div className={BUTTON_STYLE_TIGHT}>
