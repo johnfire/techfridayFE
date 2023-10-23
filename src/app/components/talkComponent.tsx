@@ -102,6 +102,11 @@ const TalkComponent = ({
             {" "}
             Speaker: &nbsp;&nbsp; {speakerName}
           </button>
+          {meetingLink && (
+            <div className={BUTTON_STYLE_TIGHT}>
+              <a href={workingLink}>Meeting link: &nbsp;{meetingLink}</a>
+            </div>
+          )}
         </div>
         <hr />
         <div className="flex flex-row justify-between">
@@ -119,11 +124,7 @@ const TalkComponent = ({
         <div className="text-justify ">{description}</div>
         <hr />
         {/* <div>Meeting link:</div> */}
-        {meetingLink && (
-          <div className={BUTTON_STYLE_TIGHT}>
-            <a href={workingLink}>Meeting link: &nbsp;{meetingLink}</a>
-          </div>
-        )}
+
         <hr />
       </div>
     </div>
