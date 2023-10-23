@@ -17,6 +17,7 @@ const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 
 const DataEntryPage = () => {
+  const [meetingId, setMeetingId] = useState(0);
   const [title, setTitle] = useState<string>("");
   const [speaker, setSpeaker] = useState<string>("");
   const [meetingSpeakerId, setMeetingSpeakerId] = useState<number>(0);
@@ -165,6 +166,7 @@ const DataEntryPage = () => {
       Language: language,
       TargetAudience: targetAudience,
       Room: room,
+      Id: meetingId,
     };
     console.log("outgoing playload", payload);
 
@@ -367,6 +369,7 @@ const DataEntryPage = () => {
       (meeting: talk) => meeting.title === event.currentTarget.id
     );
     if (thisMeeting?.length === 1) {
+      if (thisMeeting[0].id) setMeetingId(thisMeeting[0].id);
       setTitle(thisMeeting[0].title);
       setSpeaker(thisMeeting[0].speakerName);
       setMeetingSpeakerId(thisMeeting[0].speakerId);
