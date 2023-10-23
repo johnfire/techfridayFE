@@ -38,7 +38,7 @@ const TalkComponent = ({
     return res;
   }
 
-  const displayTitle = title + spaces(spacesNeeded);
+  const displayTitle = title + " ".repeat(spacesNeeded);
 
   if (targetAudience === targetAudiences[0])
     talkSymbol = (
