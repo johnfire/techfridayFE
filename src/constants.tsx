@@ -20,8 +20,8 @@ export const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 export const STAR_SIZE: number = 15;
 export const TECH_FRIDAY_GRAPHIC_SIZE: number = 300;
 export const DEBUG: boolean = true;
-export const BASIS_URL: string = "http://127.0.0.1:8000"; // development mode
+// export const BASIS_URL: string = "http://127.0.0.1:8000"; // development mode
 
-// export const BASIS_URL: string = "https://pythonserver.tandkcybernetics.net"; // test production mode
+export const BASIS_URL: string = "https://pythonserver.tandkcybernetics.net"; // test production mode
 
 // export const BASIS_URL: string = "http://techfridayserver.tarent-solutions.com"; //final production mode
