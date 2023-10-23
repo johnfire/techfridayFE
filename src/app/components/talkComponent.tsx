@@ -86,7 +86,7 @@ const TalkComponent = ({
   };
   return (
     <div
-      className="bg-white rounded-md flex justify-center items-center m-2 border-2 border-black border-solid  oveflow-hidden"
+      className="bg-white rounded-md flex justify-center items-center m-2 border-2 border-black border-solid oveflow-hidden"
       style={{
         marginBottom: "4px",
         padding: "5px",
@@ -116,7 +116,7 @@ const TalkComponent = ({
         </div>
         <hr />
         <div>Description:</div>
-        <div>{description}</div>
+        <div className="overflow-y-auto">{description}</div>
         <hr />
         {meetingLink && (
           <div className={BUTTON_STYLE_TIGHT}>

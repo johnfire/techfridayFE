@@ -24,7 +24,7 @@ const PAUSE_FORMAT: string =
   "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
 
 const TALK_COMPONENT_FORMAT: string =
-  "bg-amber-200 w-full h-full content-center flex justify-stretch items-stretch border-2 border-black border-solid overflow-hidden";
+  "bg-amber-200 w-full h-full content-center justify-items-stretch  border-2 border-black border-solid overflow-hidden";
 
 function compareObjects(a: talk, b: talk) {
   if (a.startTime < b.startTime) {
