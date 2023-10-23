@@ -46,7 +46,7 @@ const TalkComponent = ({
       : displayTitle + " ".repeat(maxLength - displayTitle.length);
   }
 
-  const displayTitle = addSpace(title, 30);
+  const displayTitle = addSpace(title, 140);
 
   console.log("length is ", displayTitle.length);
 
