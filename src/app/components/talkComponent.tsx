@@ -38,7 +38,15 @@ const TalkComponent = ({
     return res;
   }
 
-  const displayTitle = title + " ".repeat(spacesNeeded);
+  // const displayTitle = title + " ".repeat(spacesNeeded);
+
+  function addSpace(displayTitle: string, maxLength: number) {
+    return displayTitle.length >= maxLength
+      ? displayTitle
+      : displayTitle + " ".repeat(maxLength - displayTitle.length);
+  }
+
+  const displayTitle = addSpace(title, 30);
 
   if (targetAudience === targetAudiences[0])
     talkSymbol = (
