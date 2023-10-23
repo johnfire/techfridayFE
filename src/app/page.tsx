@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect, ReactComponentElement, DOMElement, ReactNode } from "react";
+
+import React, { useState, useEffect, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -24,7 +25,7 @@ const PAUSE_FORMAT: string =
   "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
 
 const TALK_COMPONENT_FORMAT: string =
-  "bg-amber-600 w-full h-full border-2 border-black border-solid "; // overflow-y-auto
+  "bg-amber-600 w-full h-full border-2 border-black border-solid ";
 
 function compareObjects(a: talk, b: talk) {
   if (a.startTime < b.startTime) {
@@ -35,6 +36,23 @@ function compareObjects(a: talk, b: talk) {
   }
   return 0;
 }
+
+const createDisplayComponent = (item: talk) => {
+  return (
+    <TalkComponent
+      title={item.title}
+      speakerName={item.speakerName}
+      speakerId={item.speakerId}
+      language={item.language}
+      meetingLink={item.meetingLink}
+      startTime={item.startTime}
+      endTime={item.endTime}
+      description={item.description}
+      targetAudience={item.targetAudience}
+      room={item.room}
+    />
+  );
+};
 
 const MainDisplayPage = () => {
   const [dataState, setDataState] = useState<boolean>(false);
@@ -62,7 +80,6 @@ const MainDisplayPage = () => {
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllTalks/`)
       .then((response) => {
-        console.log("here is the response", response);
         let meetingData: talk[] = [];
         for (let i = 0; i < response.data.length; i++) {
           meetingData.push(response.data[i]);
@@ -79,29 +96,11 @@ const MainDisplayPage = () => {
   raum123 = meetingData.filter((talk: talk) => talk.room === rooms[1]);
   n8schicht = meetingData.filter((talk: talk) => talk.room === rooms[2]);
   blauerAffe = meetingData.filter((talk: talk) => talk.room === rooms[3]);
+
   townhall1talks.sort(compareObjects);
   blauerAffe.sort(compareObjects);
   raum123.sort(compareObjects);
   n8schicht.sort(compareObjects);
-
-  const createDisplayComponent = (item: talk) => {
-    return (
-      <TalkComponent
-        title={item.title}
-        speakerName={item.speakerName}
-        speakerId={item.speakerId}
-        language={item.language}
-        meetingLink={item.meetingLink}
-        startTime={item.startTime}
-        endTime={item.endTime}
-        description={item.description}
-        targetAudience={item.targetAudience}
-        room={item.room}
-      />
-    );
-  };
-
-  // this is not updating right
 
   const townhall1talksComp: ReactNode[] = townhall1talks.map((item) =>
     createDisplayComponent(item)

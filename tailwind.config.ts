@@ -16,6 +16,12 @@ const config: Config = {
         "13": "repeat(13,minmax(0,1fr))",
         layout: `${HEADER_SIZE}, ${PAUSE_SIZE}, ${TALK_SIZE}, ${PAUSE_SIZE}, ${TALK_SIZE}, ${PAUSE_SIZE}, ${TALK_SIZE}, ${PAUSE_SIZE} ${TALK_SIZE}, 80px, ${TALK_SIZE} 80px, ${HEADER_SIZE}`,
       },
+      width: {
+        "370": "370px",
+      },
+      height: {
+        "400": "400px",
+      },
     },
   },
   plugins: [],

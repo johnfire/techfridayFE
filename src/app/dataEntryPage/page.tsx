@@ -15,9 +15,11 @@ const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white
 const TEXT_BOLD: string = "text-lg font-semibold";
 const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER: string = "border-4 border-black border-solid";
+const ONE_LINE_ENTRY: string = " width-370 border-2 border-black border-solid";
+const BOX_ENTRY: string = " width-370  height-600 border-2 border-black border-solid";
 
 const DataEntryPage = () => {
-  const [meetingId, setMeetingId] = useState(0);
+  const [meetingId, setMeetingId] = useState<number>(0);
   const [title, setTitle] = useState<string>("");
   const [speaker, setSpeaker] = useState<string>("");
   const [meetingSpeakerId, setMeetingSpeakerId] = useState<number>(0);
@@ -59,7 +61,9 @@ const DataEntryPage = () => {
         setMeetingData(meetingData);
         setHaveMeetingData(true);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
     axios
       .get(`${BASIS_URL}/techfridayAPI/getAllSpeakers`)
       .then((response1) => {
@@ -72,7 +76,9 @@ const DataEntryPage = () => {
         const speakerNames: string[] = speakerData.map((speaker) => speaker.speaker);
         setSpeakerChoices(speakerNames);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const handleChangeTitle = (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -166,7 +172,7 @@ const DataEntryPage = () => {
       Language: language,
       TargetAudience: targetAudience,
       Room: room,
-      Id: meetingId,
+      d: meetingId,
     };
     console.log("outgoing playload", payload);
 
@@ -481,7 +487,7 @@ const DataEntryPage = () => {
                 name="title"
                 value={title}
                 onChange={handleChangeTitle}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -492,7 +498,7 @@ const DataEntryPage = () => {
                 name="Language"
                 value={meetingLink}
                 onChange={handleMeetingLink}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -504,7 +510,7 @@ const DataEntryPage = () => {
                 name="speaker"
                 onChange={handleChangeStartTime}
                 value={startTime}
-                style={{ border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -515,7 +521,7 @@ const DataEntryPage = () => {
                 name="time"
                 value={endTime}
                 onChange={handleChangeEndTime}
-                style={{ border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -526,7 +532,6 @@ const DataEntryPage = () => {
                 value={description}
                 onChange={handleChangeDescrption}
                 className="w-96 h-96 border-2  break-normal"
-                // style={{ width: "370px", height: "400px", border: "1px solid" }}
               />
             </label>
             <br />
@@ -610,10 +615,7 @@ const DataEntryPage = () => {
           <br />
           <p className={TEXT_BOLD}>Enter Speaker Data Here:</p>
           <br />
-          <form
-            // onSubmit={handleSubmitSpeaker}
-            className="flex flex-col justify-start"
-          >
+          <form className="flex flex-col justify-start">
             <label>ID number :&nbsp;&nbsp; {speakerId}</label>
             <br />
             <label>
@@ -623,7 +625,7 @@ const DataEntryPage = () => {
                 name="SpeakerName"
                 value={speakerName}
                 onChange={handleChangeSpeakerName}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -634,7 +636,7 @@ const DataEntryPage = () => {
                 name="email"
                 value={speakerEmail}
                 onChange={handleChangeEmail}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <label>
@@ -644,7 +646,7 @@ const DataEntryPage = () => {
                 name="mobil"
                 value={speakerEmail}
                 onChange={handleChangeMobil}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <label>
@@ -654,7 +656,7 @@ const DataEntryPage = () => {
                 name="mobil"
                 value={speakerLinkedin}
                 onChange={handleChangeLinkedinLink}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -672,7 +674,7 @@ const DataEntryPage = () => {
                 name="Bio"
                 value={speakerBio}
                 onChange={handleChangeBio}
-                style={{ width: "370px", height: "400px", border: "1px solid" }}
+                className={BOX_ENTRY}
               />
             </label>
             <br />

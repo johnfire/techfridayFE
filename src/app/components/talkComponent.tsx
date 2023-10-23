@@ -1,19 +1,19 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { speaker, talk } from "@/interfaces/interfaces";
 import Image from "next/image";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const MySwal = withReactContent(Swal);
-
 import { targetAudiences, STAR_SIZE, BASIS_URL } from "@/constants";
 import axios from "axios";
 
-const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
-const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white w-full";
-const TEXT_BOLD = " w-full h-20 text-lg font-semibold text-center";
-const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
-const MEDIUM_BORDER = "border-4 border-black border-solid";
+const MySwal = withReactContent(Swal);
+
+const BUTTON_STYLE: string = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white w-full";
+const TEXT_BOLD: string = " w-full h-20 text-lg font-semibold text-center";
+const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
+const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 
 const TalkComponent = ({
   startTime,
@@ -63,7 +63,6 @@ const TalkComponent = ({
     );
 
   const workingLink = `https://${meetingLink}`; // link to video meeting. not on our site
-  // const workingLink = `go here `; // link to video meeting. not on our site
 
   const handleSpeakerButtonPress = () => {
     const payload = {
@@ -75,8 +74,8 @@ const TalkComponent = ({
     axios
       .get(`${BASIS_URL}/techfridayAPI/getOneSpeaker/`, payload)
       .then((response: any) => {
-        const displayData: any = `${response.data.speaker} <br/>${response.data.email} <br/>${response.data.bio}`;
-        Swal.fire({
+        const displayData: any = `${response.data.speaker} <br/> ${response.data.email} <br/> ${response.data.bio}`;
+        MySwal.fire({
           title: "Speaker Information",
           html: displayData,
           confirmButtonText: "Danke",
@@ -123,8 +122,6 @@ const TalkComponent = ({
         <div>Description:</div>
         <div className="text-justify whitespace-pre-wrap ">{description}</div>
         <hr />
-        {/* <div>Meeting link:</div> */}
-
         <hr />
       </div>
     </div>

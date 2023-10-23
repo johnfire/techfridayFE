@@ -10,11 +10,13 @@ import { useRouter } from "next/navigation";
 
 import { typeOfAttendee, BASIS_URL } from "@/constants";
 
-const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
-const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white";
-const TEXT_BOLD = "text-lg font-semibold";
-const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
-const MEDIUM_BORDER = "border-4 border-black border-solid";
+const BUTTON_STYLE: string = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white";
+const TEXT_BOLD: string = "text-lg font-semibold";
+const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
+const MEDIUM_BORDER: string = "border-4 border-black border-solid";
+const ONE_LINE_ENTRY: string = " width-370 border-2 border-black border-solid";
+const BOX_ENTRY: string = " width-370  height-600 border-2 border-black border-solid";
 
 const AttendeeRegistrationPage = () => {
   const { push } = useRouter();
@@ -104,7 +106,7 @@ const AttendeeRegistrationPage = () => {
                 name="Speaker"
                 value={attendeeFirstName}
                 onChange={handleChangeAttendeeFirstName}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -115,7 +117,7 @@ const AttendeeRegistrationPage = () => {
                 name="Speaker"
                 value={attendeeLastName}
                 onChange={handleChangeAttendeeLastName}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -126,7 +128,7 @@ const AttendeeRegistrationPage = () => {
                 name="Speaker"
                 value={attendeeEmail}
                 onChange={handleChangeEmail}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -137,7 +139,7 @@ const AttendeeRegistrationPage = () => {
                 name="Speaker"
                 value={attendeeTelephone}
                 onChange={handleChangeTelephone}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -148,7 +150,7 @@ const AttendeeRegistrationPage = () => {
                 name="Language"
                 value={attendeeCompany}
                 onChange={handleChangeCompany}
-                style={{ width: "370px", border: "1px solid" }}
+                className={ONE_LINE_ENTRY}
               />
             </label>
             <br />
@@ -158,7 +160,7 @@ const AttendeeRegistrationPage = () => {
                 name="description"
                 value={attendeeBio}
                 onChange={handleChangeBio}
-                style={{ width: "370px", height: "400px", border: "1px solid" }}
+                className={BOX_ENTRY}
               />
             </label>
             <br />
