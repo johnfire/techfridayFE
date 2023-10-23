@@ -121,7 +121,7 @@ const TalkComponent = ({
         </div>
         <hr />
         <div>Description:</div>
-        <div className="text-justify ">{description}</div>
+        <div className="text-justify whitespace-pre-wrap ">{description}</div>
         <hr />
         {/* <div>Meeting link:</div> */}
 
