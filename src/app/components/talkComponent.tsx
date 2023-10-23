@@ -48,6 +48,8 @@ const TalkComponent = ({
 
   const displayTitle = addSpace(title, 30);
 
+  console.log("length is ", displayTitle.length);
+
   if (targetAudience === targetAudiences[0])
     talkSymbol = (
       <Image
