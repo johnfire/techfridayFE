@@ -11,7 +11,7 @@ import axios from "axios";
 
 const BUTTON_STYLE = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
 const BUTTON_STYLE_TIGHT = "border-2 bg-blue-900 items-center text-white w-full";
-const TEXT_BOLD = " w-full h-32 text-lg font-semibold";
+const TEXT_BOLD = " w-full h-32 text-lg font-semibold text-center";
 const SMALL_BORDER = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER = "border-4 border-black border-solid";
 
@@ -28,27 +28,6 @@ const TalkComponent = ({
   room,
 }: talk) => {
   let talkSymbol: any = "*";
-  // let displayTitle: string = title || "";
-
-  // const spacesNeeded: number = 140 - title.length;
-
-  // function spaces(x: number) {
-  //   var res = "";
-  //   while (x--) res += " ";
-  //   return res;
-  // }
-
-  // // const displayTitle = title + " ".repeat(spacesNeeded);
-
-  // function addSpace(displayTitle: string, maxLength: number) {
-  //   return displayTitle.length >= maxLength
-  //     ? displayTitle
-  //     : displayTitle + " ".repeat(maxLength - displayTitle.length);
-  // }
-
-  // const displayTitle = addSpace(title, 140);
-
-  // console.log("length is ", displayTitle.length);
 
   if (targetAudience === targetAudiences[0])
     talkSymbol = (
@@ -107,7 +86,7 @@ const TalkComponent = ({
   };
   return (
     <div
-      className="bg-white rounded-md h-full flex justify-center items-center m-2"
+      className="bg-white rounded-md flex justify-center items-center m-2 border-2 border-black border-solid"
       style={{
         marginBottom: "4px",
         padding: "5px",
@@ -137,7 +116,7 @@ const TalkComponent = ({
         </div>
         <hr />
         <div>Description:</div>
-        <div>{description}</div>
+        <div className="overflow-x-auto">{description}</div>
         <hr />
         {meetingLink && (
           <div className={BUTTON_STYLE_TIGHT}>
