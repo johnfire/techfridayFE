@@ -112,8 +112,8 @@ const MainDisplayPage = () => {
 
   if (dataState === true) {
     return (
-      <main className="flex flex-col items-center min-h-screen w-full p-5">
-        <div className="flex flex-row items-center justify-between w-full p-5">
+      <main className="flex flex-col items-center min-h-screen w-full p-2">
+        <div className="flex flex-row items-center justify-between w-full p-2">
           <Image
             src="/Qvest-digital-mockup.svg"
             alt="tarent"
