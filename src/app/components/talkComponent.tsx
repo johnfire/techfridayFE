@@ -83,6 +83,7 @@ const TalkComponent = ({
             break;
           case "Michael Schmidt":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Corinna Voss":
             speakerFoto = "/photos/cat.svg";
             break;
@@ -114,6 +115,18 @@ const TalkComponent = ({
             speakerFoto = "/photos/cat.svg";
             break;
           case "Thomas Hensel":
+            speakerFoto = "/photos/cat.svg";
+            break;
+          case "Patrick Steinert":
+            speakerFoto = "/photos/cat.svg";
+            break;
+          case "Kevin Vogel":
+            speakerFoto = "/photos/cat.svg";
+            break;
+          case "Lukas Degener":
+            speakerFoto = "/photos/cat.svg";
+            break;
+          case "Martin Pelzer":
             speakerFoto = "/photos/cat.svg";
             break;
           case "Hannes Rohde":
