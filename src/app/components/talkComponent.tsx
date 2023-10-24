@@ -74,7 +74,8 @@ const TalkComponent = ({
     axios
       .get(`${BASIS_URL}/techfridayAPI/getOneSpeaker/`, payload)
       .then((response: any) => {
-        let speakerFoto = "/photos/cat.svg";
+        type Nullable<T> = T | null;
+        let speakerFoto: Nullable<string> = "/photos/cat.svg";
         switch (response.data.speaker) {
           case "Adrian Salamon":
             speakerFoto = "/photos/cat.svg";
@@ -103,11 +104,11 @@ const TalkComponent = ({
           case "Thomas Hensel":
             speakerFoto = "/photos/cat.svg";
           case "Hannes Rohde":
-            speakerFoto = "/photos/cat.svg";
+            speakerFoto = null;
           case "Bernd Schoenbach":
-            speakerFoto = "/photos/cat.svg";
+            speakerFoto = null;
           case "Christoph Uhlrich":
-            speakerFoto = "/photos/cat.svg";
+            speakerFoto = null;
           default:
             speakerFoto = "/photos/cat.svg";
         }
@@ -115,7 +116,7 @@ const TalkComponent = ({
        
           <Image
             src=${speakerFoto}
-            alt="cat"
+            alt="no photo"
             width={100}
             height={100}
           />
