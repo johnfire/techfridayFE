@@ -75,7 +75,7 @@ const TalkComponent = ({
       .get(`${BASIS_URL}/techfridayAPI/getOneSpeaker/`, payload)
       .then((response: any) => {
         type Nullable<T> = T | null;
-        let speakerFoto: Nullable<string> = "/photos/cat.svg";
+        let speakerFoto: Nullable<string> = null;
         switch (response.data.speaker) {
           case "Adrian Salamon":
             speakerFoto = "/photos/cat.svg";
