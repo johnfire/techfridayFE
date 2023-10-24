@@ -77,6 +77,8 @@ const TalkComponent = ({
         type Nullable<T> = T | null;
         let speakerFoto: Nullable<string> = null;
 
+        console.log(response.data.speaker);
+
         switch (response.data.speaker) {
           case "Adrian Salamon":
             speakerFoto = "/photos/cat.svg";
@@ -138,8 +140,6 @@ const TalkComponent = ({
           case "Christoph Uhlrich":
             speakerFoto = null;
             break;
-          default:
-            speakerFoto = null;
         }
         const fotoBox = `
           <Image
