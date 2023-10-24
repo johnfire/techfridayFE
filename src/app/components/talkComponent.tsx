@@ -74,8 +74,45 @@ const TalkComponent = ({
     axios
       .get(`${BASIS_URL}/techfridayAPI/getOneSpeaker/`, payload)
       .then((response: any) => {
-        const speakerFoto = "/photos/cat.svg";
+        let speakerFoto = "/photos/cat.svg";
+        switch (response.data.speaker) {
+          case "Adrian Salamon":
+            speakerFoto = "/photos/cat.svg";
+          case "Michael Schmidt":
+            speakerFoto = "/photos/cat.svg";
+          case "Corinna Voss":
+            speakerFoto = "/photos/cat.svg";
+          case "Torben Friedrichs":
+            speakerFoto = "/photos/cat.svg";
+          case "Nuno Jorge de Loureiro Pais":
+            speakerFoto = "/photos/cat.svg";
+          case "Martin Pelzer":
+            speakerFoto = "/photos/cat.svg";
+          case "Alexander Heinecke":
+            speakerFoto = "/photos/cat.svg";
+          case "David Crome":
+            speakerFoto = "/photos/cat.svg";
+          case "Sven Schumann":
+            speakerFoto = "/photos/cat.svg";
+          case "Susanne Pfeiffer":
+            speakerFoto = "/photos/cat.svg";
+          case "Julian Egner":
+            speakerFoto = "/photos/cat.svg";
+          case "Lars Adler":
+            speakerFoto = "/photos/cat.svg";
+          case "Thomas Hensel":
+            speakerFoto = "/photos/cat.svg";
+          case "Hannes Rohde":
+            speakerFoto = "/photos/cat.svg";
+          case "Bernd Schoenbach":
+            speakerFoto = "/photos/cat.svg";
+          case "Christoph Uhlrich":
+            speakerFoto = "/photos/cat.svg";
+          default:
+            speakerFoto = "/photos/cat.svg";
+        }
         const fotoBox = `
+       
           <Image
             src=${speakerFoto}
             alt="cat"
