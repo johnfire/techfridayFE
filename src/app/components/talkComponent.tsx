@@ -76,51 +76,65 @@ const TalkComponent = ({
       .then((response: any) => {
         type Nullable<T> = T | null;
         let speakerFoto: Nullable<string> = null;
+
         switch (response.data.speaker) {
           case "Adrian Salamon":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Michael Schmidt":
             speakerFoto = "/photos/cat.svg";
           case "Corinna Voss":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Torben Friedrichs":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Nuno Jorge de Loureiro Pais":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Martin Pelzer":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Alexander Heinecke":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "David Crome":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Sven Schumann":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Susanne Pfeiffer":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Julian Egner":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Lars Adler":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Thomas Hensel":
             speakerFoto = "/photos/cat.svg";
+            break;
           case "Hannes Rohde":
             speakerFoto = null;
+            break;
           case "Bernd Schoenbach":
             speakerFoto = null;
+            break;
           case "Christoph Uhlrich":
             speakerFoto = null;
+            break;
           default:
-            speakerFoto = "/photos/cat.svg";
+            speakerFoto = null;
         }
         const fotoBox = `
-       
           <Image
             src=${speakerFoto}
             alt="no photo"
             width={100}
             height={100}
-          />
-        `;
+          />`;
         const displayData: any = `${response.data.speaker} <br/> ${response.data.email} <br/> ${response.data.bio} <br/> ${fotoBox}`;
 
         MySwal.fire({
