@@ -10,13 +10,13 @@ import { useRouter } from "next/navigation";
 
 import { typeOfAttendee, BASIS_URL } from "@/constants";
 
-const BUTTON_STYLE: string = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
+const BUTTON_STYLE: string = "w-700 border-2 bg-blue-900 text-center text-white px-5 mx-4";
 const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white";
 const TEXT_BOLD: string = "text-lg font-semibold";
 const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER: string = "border-4 border-black border-solid";
-const ONE_LINE_ENTRY: string = " width-370 border-2 border-black border-solid";
-const BOX_ENTRY: string = " width-370  height-600 border-2 border-black border-solid";
+const ONE_LINE_ENTRY: string = "w-600 border-2 border-black border-solid";
+const BOX_ENTRY: string = "w-600 h-600 border-2 border-black border-solid";
 
 const AttendeeRegistrationPage = () => {
   const { push } = useRouter();
@@ -90,8 +90,8 @@ const AttendeeRegistrationPage = () => {
 
   return (
     <main className="flex flex-col min-h-screen  w-full justify-between gap-5">
-      <div className="flex flex-row justify-between gap-5">
-        <div className="flex flex-col items-center w-full justify-between justify-start font-mono text-sm bg-amber-100">
+      <div className="bg-white flex flex-row justify-between gap-5">
+        <div className="flex flex-col items-center w-full justify-between justify-start font-mono text-sm bg-white">
           <br />
           <p className={TEXT_BOLD}>Enter Attendee Data Here:</p>
           <br />
