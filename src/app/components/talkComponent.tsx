@@ -74,7 +74,13 @@ const TalkComponent = ({
     axios
       .get(`${BASIS_URL}/techfridayAPI/getOneSpeaker/`, payload)
       .then((response: any) => {
-        const displayData: any = `${response.data.speaker} <br/> ${response.data.email} <br/> ${response.data.bio}`;
+        const displayData: any = `${response.data.speaker} <br/> ${response.data.email} <br/> ${response.data.bio} <br/> 
+        <img
+        src="/photos/cat.svg"
+        alt="cat"
+        width={100}
+        height={100}
+        />`;
         MySwal.fire({
           title: "Speaker Information",
           html: displayData,
