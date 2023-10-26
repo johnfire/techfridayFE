@@ -10,13 +10,14 @@ import { useRouter } from "next/navigation";
 
 import { typeOfAttendee, BASIS_URL } from "@/constants";
 
-const BUTTON_STYLE: string = "w-700 border-2 bg-blue-900 text-center text-white px-5 mx-4";
+const BUTTON_STYLE: string =
+  "w-11/12 lg:w-700 border-2 bg-blue-900 text-center text-white px-5 mx-4";
 const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white";
 const TEXT_BOLD: string = "text-lg font-semibold";
 const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER: string = "border-4 border-black border-solid";
-const ONE_LINE_ENTRY: string = "w-600 border-2 border-black border-solid";
-const BOX_ENTRY: string = "w-600 h-600 border-2 border-black border-solid";
+const ONE_LINE_ENTRY: string = "w-11/12 lg:w-600 border-2 border-black border-solid";
+const BOX_ENTRY: string = "w-11/12 lg:w-600 h-600 border-2 border-black border-solid";
 
 const AttendeeRegistrationPage = () => {
   const { push } = useRouter();
@@ -183,7 +184,7 @@ const AttendeeRegistrationPage = () => {
           </form>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-between justify-start">
+      <div className=" flex flex-col items-center justify-between justify-start">
         <Link
           href="/"
           className={BUTTON_STYLE}

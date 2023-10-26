@@ -20,9 +20,9 @@ const TEXT_BOLD: string = "text-lg font-semibold";
 const SMALL_BORDER: string = "border-2 border-black border-solid  mb-5";
 const MEDIUM_BORDER: string = "border-4 border-black border-solid";
 const GREETING_FORMAT: string =
-  "bg-amber-700 col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
+  "bg-amber-700  col-span-1 lg:col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
 const PAUSE_FORMAT: string =
-  "bg-red-600 col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
+  "bg-red-600  col-span-1 lg:col-span-4 flex flex-col justify-center items-center font-semibold text-white border-2 border-black border-solid";
 
 const TALK_COMPONENT_FORMAT: string =
   "bg-amber-600 w-full h-full border-2 border-black border-solid ";
@@ -112,7 +112,7 @@ const MainDisplayPage = () => {
   if (dataState === true) {
     return (
       <main className="flex flex-col items-center min-h-screen w-full p-2">
-        <div className="flex flex-row items-center justify-between w-full p-2">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:w-full p-2">
           <Image
             src="/Qvest-digital-mockup.svg"
             alt="tarent"
@@ -134,7 +134,7 @@ const MainDisplayPage = () => {
           <RoomHeader />
         </div>
 
-        <div className="grid grid-cols-4 grid-rows-layout w-full place-items-stretch justify-between gap-3">
+        <div className="flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-layout lg:w-full place-items-stretch justify-between gap-3">
           <div className={GREETING_FORMAT}>
             <div>Keynote und Begrüßung</div>
             <div>9:45 - 10:25</div>

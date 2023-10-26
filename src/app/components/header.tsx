@@ -5,7 +5,7 @@ import { STAR_SIZE, TECH_FRIDAY_GRAPHIC_SIZE } from "@/constants";
 
 const Header = () => {
   return (
-    <div className=" flex flex-row  justify-between bg-amber-100 m-3 rounded-md border-2 border-blue-900">
+    <div className=" flex flex-col lg:flex-row  justify-between bg-amber-100 m-3 rounded-md border-2 border-blue-900">
       <div className=" flex flex-col justify-between  ">
         <br />
         <div className="text-2xl font-extrabold ">

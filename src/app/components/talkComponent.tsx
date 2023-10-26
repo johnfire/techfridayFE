@@ -160,7 +160,7 @@ const TalkComponent = ({
   };
   return (
     <div
-      className="bg-white rounded-md h-96 flex flex-col justify-start m-2 border-2 border-black border-solid overflow-y-auto"
+      className="bg-white rounded-md w-11/12 lg:w-full h-96 flex flex-col justify-start m-2 border-2 border-black border-solid overflow-y-auto"
       style={{
         marginBottom: "4px",
         padding: "5px",
@@ -183,15 +183,15 @@ const TalkComponent = ({
           )}
         </div>
         <hr />
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-col lg:flex-row justify-between">
           <p> Start:&nbsp; {startTime}</p>
           <p> End:&nbsp; {endTime}</p>
         </div>
         <hr />
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-col lg:flex-row justify-between">
           {talkSymbol}
           <div>{language}</div>
-          {/* <div> {room}</div> */}
+          <div className="lg:hidden"> {room}</div>
         </div>
         <hr />
         <div>Description:</div>
