@@ -9,6 +9,7 @@ import axios from "axios";
 import { talk, speaker } from "@/interfaces/interfaces";
 // does not work in production for tailwind
 import { rooms, languages, targetAudiences, BASIS_URL } from "@/constants";
+import Footer from "../components/footer";
 
 const BUTTON_STYLE: string = "border-2 bg-blue-900 items-center text-white px-5 mx-4";
 const BUTTON_STYLE_TIGHT: string = "border-2 bg-blue-900 items-center text-white w-full";
@@ -712,6 +713,7 @@ const DataEntryPage = () => {
           <br />
         </div>
       </div>
+      <Footer />
     </main>
   );
 };

@@ -11,6 +11,7 @@ import Header from "./components/header";
 import TalkComponent from "./components/talkComponent";
 import { talk } from "@/interfaces/interfaces";
 import { rooms, BASIS_URL } from "@/constants";
+import Footer from "./components/footer";
 
 const TARENT_SYMBOL_SIZE: number = 200;
 
@@ -201,6 +202,7 @@ const MainDisplayPage = () => {
         >
           Link to data entry
         </Link> */}
+        <Footer />
       </main>
     );
   }

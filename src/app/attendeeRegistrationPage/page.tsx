@@ -9,6 +9,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 import { typeOfAttendee, BASIS_URL } from "@/constants";
+import Footer from "../components/footer";
 
 const BUTTON_STYLE: string =
   "w-11/12 lg:w-700 border-2 bg-blue-900 text-center text-white px-5 mx-4";
@@ -194,6 +195,7 @@ const AttendeeRegistrationPage = () => {
         <br />
         <br />
       </div>
+      <Footer />
     </main>
   );
 };

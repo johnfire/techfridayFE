@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Footer from "../components/footer";
 
 // doesnt work in production...  -.-
 // import { BUTTON_STYLE, TEXT_BOLD } from "@/constants";
@@ -64,6 +65,7 @@ const PassPage = () => {
         go back here!
       </Link>
       <br />
+      <Footer />
     </div>
   );
 };

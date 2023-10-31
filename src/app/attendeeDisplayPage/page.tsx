@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { Attendee } from "@/interfaces/interfaces";
 import { BASIS_URL } from "@/constants";
+import Footer from "../components/footer";
 
 const AttendeeDisplayPage = () => {
   console.log("new display page");
@@ -46,6 +47,7 @@ const AttendeeDisplayPage = () => {
     <div className="flex flex-col w-full h-full min-h-screen items-center">
       here are the attendees to date
       <div>{attendees}</div>
+      <Footer />
     </div>
   );
 };
